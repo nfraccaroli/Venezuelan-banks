@@ -364,10 +364,10 @@ function val(b,field){
 function fb(){return (flt==='all'?ALL:ALL.filter(b=>b.type===flt)).map(b=>({...b, assetShare: b.assetsUSD/TOTAL_ASSETS*100, loanShare: b.loansUSD/TOTAL_LOANS*100}))}
 function fp(v,d=0){
   if(v==null) return '—';
-  if(cur==='usd') return '$'+v.toLocaleString(undefined,{maximumFractionDigits:d})+'M';
-  // Bs: show in millions of bolivares for readability, since raw Bs figures are huge
+  if(cur==='usd') return '$'+v.toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d})+'M';
+  // v is raw Bs; show in millions of bolivares for readability
   const millions = v/1e6;
-  return 'Bs '+millions.toLocaleString(undefined,{maximumFractionDigits:1})+'M';
+  return 'Bs '+millions.toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1})+'M';
 }
 function fpp(v,d=1){return v==null?'—':v.toFixed(d)+'%'}
 function bc(b){return b.type==='pub'?'var(--pub)':'var(--priv)'}
@@ -378,20 +378,31 @@ function sf(f,el){flt=f;document.querySelectorAll('.pills')[0].querySelectorAll(
 function sv(n,el){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.getElementById('view-'+n).classList.add('active');if(el)el.classList.add('active');ra()}
 
 function rHero(){
-  const totA = ALL.reduce((s,b)=>s+(cur==='usd'?b.assetsUSD:b.assetsBs),0);
-  const totL = ALL.reduce((s,b)=>s+(cur==='usd'?b.loansUSD:b.loansBs),0);
-  const totD = ALL.reduce((s,b)=>s+(cur==='usd'?b.depositsUSD:b.depositsBs),0);
+  // Totals always computed in USD millions first (canonical), then converted for display
+  const totA_usd = ALL.reduce((s,b)=>s+b.assetsUSD,0);
+  const totL_usd = ALL.reduce((s,b)=>s+b.loansUSD,0);
+  const totD_usd = ALL.reduce((s,b)=>s+b.depositsUSD,0);
   const bdv = ALL.find(b=>b.id==='bdv');
-  const fmtB = (v) => {
-    if(cur==='usd') return '$'+(v/1000).toFixed(2)+'B';
-    return 'Bs '+(v/1e12).toFixed(1)+'T';
+
+  const fmtMain = (usdMillions) => {
+    if(cur==='usd') return '$'+(usdMillions/1000).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})+'B';
+    const bsTrillions = (usdMillions*FX)/1e6; // usdMillions * FX = Bs millions; /1e6 = Bs trillions
+    return 'Bs '+bsTrillions.toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1})+'T';
   };
-  const elA=document.getElementById('heroAssets'); if(elA) elA.textContent=fmtB(totA);
-  const elL=document.getElementById('heroLoans'); if(elL) elL.textContent=fmtB(totL);
-  const elD=document.getElementById('heroDeposits'); if(elD) elD.textContent=fmtB(totD);
-  const elAS=document.getElementById('heroAssetsSub'); if(elAS) elAS.textContent= cur==='usd' ? 'Bs '+(totA*FX/1e12).toFixed(1)+'T equiv · May 31, 2026' : '$'+(totA/FX/1000).toFixed(2)+'B equiv · May 31, 2026';
-  const elLS=document.getElementById('heroLoansSub'); if(elLS) elLS.textContent= cur==='usd' ? 'Bs '+(totL*FX/1e12).toFixed(1)+'T equiv' : '$'+(totL/FX/1000).toFixed(2)+'B equiv';
-  const elDS=document.getElementById('heroDepositsSub'); if(elDS) elDS.textContent= cur==='usd' ? 'Bs '+(totD*FX/1e12).toFixed(1)+'T equiv' : '$'+(totD/FX/1000).toFixed(2)+'B equiv';
+  const fmtSub = (usdMillions) => {
+    if(cur==='usd') {
+      const bsTrillions = (usdMillions*FX)/1e6;
+      return 'Bs '+bsTrillions.toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1})+'T equiv';
+    }
+    return '$'+(usdMillions/1000).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})+'B equiv';
+  };
+
+  const elA=document.getElementById('heroAssets'); if(elA) elA.textContent=fmtMain(totA_usd);
+  const elL=document.getElementById('heroLoans'); if(elL) elL.textContent=fmtMain(totL_usd);
+  const elD=document.getElementById('heroDeposits'); if(elD) elD.textContent=fmtMain(totD_usd);
+  const elAS=document.getElementById('heroAssetsSub'); if(elAS) elAS.textContent= fmtSub(totA_usd)+' · May 31, 2026';
+  const elLS=document.getElementById('heroLoansSub'); if(elLS) elLS.textContent= fmtSub(totL_usd);
+  const elDS=document.getElementById('heroDepositsSub'); if(elDS) elDS.textContent= fmtSub(totD_usd);
   const elBdv=document.getElementById('heroBdvSub'); if(elBdv) elBdv.textContent= fp(val(bdv,'assets'))+' · CAR 84.48%';
 }
 
