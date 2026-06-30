@@ -344,11 +344,11 @@ let flt='all',sKey='rank',sAsc=true,cur='usd';
 function derived(b){
   return {
     ...b,
-    assetsUSD: b.assetsBs/FX,
-    loansUSD: b.loansBs/FX,
-    depositsUSD: b.depositsBs/FX,
-    equityUSD: b.equityBs/FX,
-    niUSD: b.niBs/FX,
+    assetsUSD: b.assetsBs/FX/1e6,
+    loansUSD: b.loansBs/FX/1e6,
+    depositsUSD: b.depositsBs/FX/1e6,
+    equityUSD: b.equityBs/FX/1e6,
+    niUSD: b.niBs/FX/1e6,
     npl: (b.vencidosBs/b.loansBs*100),
   };
 }
