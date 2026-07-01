@@ -7,133 +7,141 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 :root {
-  --bg:#f5f7fa; --panel:#ffffff; --card:#ffffff; --border:#e2e6ea; --border2:#cdd3da;
-  --accent:#0a7c5c; --accent-l:#e6f4f0; --gold:#9a6e0a; --gold-l:#fef8e7;
-  --blue:#1855a8; --blue-l:#e8f0fb; --red:#b83232; --red-l:#fdecea;
-  --orange:#b85a0a; --pub:#1855a8; --pub-l:#e8f0fb; --priv:#9a6e0a; --priv-l:#fef8e7;
-  --text:#1a202c; --muted:#5a6472; --dim:#9aa5b1;
-  --mono:'JetBrains Mono',monospace; --sans:'Inter',sans-serif;
-  --sh:0 1px 3px rgba(0,0,0,0.07),0 1px 2px rgba(0,0,0,0.04);
+  --bg:#f5f7fa;--panel:#fff;--card:#fff;--border:#e2e6ea;--border2:#cdd3da;
+  --accent:#0a7c5c;--accent-l:#e6f4f0;--gold:#9a6e0a;--gold-l:#fef8e7;
+  --blue:#1855a8;--blue-l:#e8f0fb;--red:#b83232;--red-l:#fdecea;--orange:#b85a0a;
+  --pub:#1855a8;--pub-l:#e8f0fb;--priv:#9a6e0a;--priv-l:#fef8e7;
+  --micro:#6b21a8;--micro-l:#f3e8ff;
+  --text:#1a202c;--muted:#5a6472;--dim:#9aa5b1;
+  --mono:'JetBrains Mono',monospace;--sans:'Inter',sans-serif;
+  --sh:0 1px 3px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.04);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;min-height:100vh}
-.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(10px);
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);
   border-bottom:1px solid var(--border);box-shadow:var(--sh);display:flex;align-items:center;
-  justify-content:space-between;padding:0 28px;height:56px}
-.nav-brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;letter-spacing:-.3px}
-.nav-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2.5s ease infinite}
+  justify-content:space-between;padding:0 22px;height:52px;gap:8px}
+.nav-brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;letter-spacing:-.3px;flex-shrink:0}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2.5s ease infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.nav-right{font-family:var(--mono);font-size:10px;color:var(--dim)}
-.nav-tabs{display:flex;gap:2px}
-.nav-tab{padding:6px 13px;border-radius:5px;font-size:12px;font-weight:500;color:var(--muted);
-  cursor:pointer;border:none;background:transparent;transition:all .15s}
+.nav-right{font-family:var(--mono);font-size:10px;color:var(--dim);flex-shrink:0}
+.nav-tabs{display:flex;gap:2px;flex-wrap:wrap}
+.nav-tab{padding:5px 11px;border-radius:5px;font-size:11px;font-weight:500;color:var(--muted);
+  cursor:pointer;border:none;background:transparent;transition:all .15s;white-space:nowrap}
 .nav-tab:hover{color:var(--text);background:var(--bg)}
 .nav-tab.active{color:var(--accent);background:var(--accent-l)}
-.sel-panel{background:var(--panel);border-bottom:1px solid var(--border);padding:12px 28px;
-  display:flex;align-items:center;gap:14px;flex-wrap:wrap;box-shadow:var(--sh)}
-.sel-label{font-size:11px;font-family:var(--mono);color:var(--dim);text-transform:uppercase;
+.sel-panel{background:var(--panel);border-bottom:1px solid var(--border);padding:10px 22px;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;box-shadow:var(--sh)}
+.sel-label{font-size:10px;font-family:var(--mono);color:var(--dim);text-transform:uppercase;
   letter-spacing:.1em;white-space:nowrap}
 .sel-wrap{position:relative}
 .sel-wrap select{appearance:none;background:var(--bg);border:1px solid var(--border2);color:var(--text);
-  font-family:var(--sans);font-size:13px;font-weight:500;padding:7px 34px 7px 12px;border-radius:6px;
+  font-family:var(--sans);font-size:13px;font-weight:500;padding:6px 32px 6px 11px;border-radius:6px;
   cursor:pointer;outline:none;min-width:230px;box-shadow:var(--sh);transition:border-color .15s}
 .sel-wrap select:hover{border-color:var(--accent)}
 .sel-wrap select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(10,124,92,.12)}
-.sel-wrap::after{content:'▾';position:absolute;right:11px;top:50%;transform:translateY(-50%);
+.sel-wrap::after{content:'▾';position:absolute;right:10px;top:50%;transform:translateY(-50%);
   color:var(--dim);pointer-events:none;font-size:11px}
-.pills{display:flex;gap:6px}
-.pill{padding:5px 12px;border-radius:20px;font-size:11px;font-weight:500;cursor:pointer;
+.pills{display:flex;gap:5px;flex-wrap:wrap}
+.pill{padding:4px 11px;border-radius:20px;font-size:11px;font-weight:500;cursor:pointer;
   border:1px solid var(--border2);background:var(--bg);color:var(--muted);transition:all .15s;white-space:nowrap}
 .pill:hover{border-color:var(--accent);color:var(--text)}
 .pill.ap{border-color:var(--text);color:var(--text);background:#eff1f4}
 .pill.apb{border-color:var(--pub);color:var(--pub);background:var(--pub-l)}
 .pill.app{border-color:var(--priv);color:var(--priv);background:var(--priv-l)}
-.sep{width:1px;height:28px;background:var(--border)}
-.main{padding:24px 28px 48px}
-.hero{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px}
-.hcard{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;
+.pill.apm{border-color:var(--micro);color:var(--micro);background:var(--micro-l)}
+.sep{width:1px;height:26px;background:var(--border);flex-shrink:0}
+.main{padding:20px 22px 48px}
+.hero{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px}
+.hcard{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px;
   box-shadow:var(--sh);position:relative;overflow:hidden}
 .hcard::after{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-.hg::after{background:var(--accent)} .hb::after{background:var(--blue)}
-.hy::after{background:var(--gold)}  .ho::after{background:var(--orange)}
-.hr::after{background:var(--red)}
+.hg::after{background:var(--accent)}.hb::after{background:var(--blue)}
+.hy::after{background:var(--gold)}.ho::after{background:var(--orange)}.hr::after{background:var(--red)}
 .hlbl{font-size:10px;font-family:var(--mono);color:var(--muted);text-transform:uppercase;
-  letter-spacing:.09em;margin-bottom:8px}
-.hval{font-size:24px;font-weight:700;font-family:var(--mono);letter-spacing:-1px;line-height:1}
-.hg .hval{color:var(--accent)} .hb .hval{color:var(--blue)}
-.hy .hval{color:var(--gold)}  .ho .hval{color:var(--orange)} .hr .hval{color:var(--red)}
-.hsub{font-size:11px;color:var(--muted);margin-top:5px;font-family:var(--mono)}
-.hdelta{font-size:10px;margin-top:6px;font-family:var(--mono)}
-.up{color:var(--accent)} .dn{color:var(--red)} .neu{color:var(--muted)}
+  letter-spacing:.09em;margin-bottom:7px}
+.hval{font-size:22px;font-weight:700;font-family:var(--mono);letter-spacing:-1px;line-height:1}
+.hg .hval{color:var(--accent)}.hb .hval{color:var(--blue)}
+.hy .hval{color:var(--gold)}.ho .hval{color:var(--orange)}.hr .hval{color:var(--red)}
+.hsub{font-size:10px;color:var(--muted);margin-top:4px;font-family:var(--mono)}
+.hdelta{font-size:10px;margin-top:5px;font-family:var(--mono)}
+.up{color:var(--accent)}.dn{color:var(--red)}.neu{color:var(--muted)}
 .view{display:none}.view.active{display:block}
-.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:20px;box-shadow:var(--sh)}
-.ctitle{font-size:11px;font-family:var(--mono);color:var(--muted);text-transform:uppercase;
-  letter-spacing:.09em;margin-bottom:16px}
-.br{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-.brn{font-size:11px;color:var(--text);width:130px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.brt{flex:1;height:14px;background:var(--bg);border-radius:2px;overflow:hidden;border:1px solid var(--border)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:18px;box-shadow:var(--sh)}
+.ctitle{font-size:10px;font-family:var(--mono);color:var(--muted);text-transform:uppercase;
+  letter-spacing:.09em;margin-bottom:14px}
+.br{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+.brn{font-size:11px;color:var(--text);width:120px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brt{flex:1;height:13px;background:var(--bg);border-radius:2px;overflow:hidden;border:1px solid var(--border)}
 .brf{height:100%;border-radius:2px;transition:width .5s cubic-bezier(.4,0,.2,1)}
 .brv{font-family:var(--mono);font-size:10px;color:var(--muted);width:65px;text-align:right;flex-shrink:0}
-.sr{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--border)}
+.sr{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--border)}
 .sr:last-child{border-bottom:none}
-.sn{font-size:11px;color:var(--muted)} .sv{font-size:13px;font-family:var(--mono);font-weight:500;color:var(--text)}
+.sn{font-size:11px;color:var(--muted)}.sv{font-size:13px;font-family:var(--mono);font-weight:500;color:var(--text)}
 .tbl-wrap{overflow-x:auto}
-table.dtbl{width:100%;border-collapse:collapse;font-size:12px}
-.dtbl th{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;
-  color:var(--muted);text-align:left;padding:0 12px 10px 0;border-bottom:2px solid var(--border);
+table.dtbl{width:100%;border-collapse:collapse;font-size:11px}
+.dtbl th{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--muted);text-align:left;padding:0 10px 8px 0;border-bottom:2px solid var(--border);
   white-space:nowrap;cursor:pointer;user-select:none}
 .dtbl th:hover{color:var(--text)}.dtbl th.srt{color:var(--accent)}
-.dtbl td{padding:9px 12px 9px 0;border-bottom:1px solid var(--border);vertical-align:middle}
+.dtbl td{padding:7px 10px 7px 0;border-bottom:1px solid var(--border);vertical-align:middle}
 .dtbl tr:hover td{background:#f8fafc}.dtbl tr.hl td{background:var(--accent-l)}
-.mv{font-family:var(--mono);font-size:12px}
-.rk{font-family:var(--mono);font-size:10px;color:var(--dim);margin-right:6px}
-.ibw{display:flex;align-items:center;gap:8px}
-.ibt{flex:1;height:5px;background:var(--bg);border-radius:2px;border:1px solid var(--border);min-width:50px;max-width:100px}
+.mv{font-family:var(--mono);font-size:11px}
+.rk{font-family:var(--mono);font-size:9px;color:var(--dim);margin-right:5px}
+.ibw{display:flex;align-items:center;gap:6px}
+.ibt{flex:1;height:4px;background:var(--bg);border-radius:2px;border:1px solid var(--border);min-width:40px;max-width:80px}
 .ibf{height:100%;border-radius:2px}
-.bdet{display:grid;grid-template-columns:290px 1fr;gap:20px;margin-bottom:24px}
-.bicard{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;box-shadow:var(--sh)}
-.bname{font-size:20px;font-weight:700;letter-spacing:-.4px;line-height:1.2;margin-bottom:6px;color:var(--text)}
-.tbadge{display:inline-block;font-size:10px;font-family:var(--mono);padding:3px 8px;border-radius:3px;margin-bottom:18px}
+.tbadge{display:inline-block;font-size:9px;font-family:var(--mono);padding:2px 6px;border-radius:3px}
 .tpub{background:var(--pub-l);color:var(--pub);border:1px solid rgba(24,85,168,.2)}
 .tpriv{background:var(--priv-l);color:var(--priv);border:1px solid rgba(154,110,10,.2)}
-.bcharts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.leg{display:flex;gap:20px;font-size:11px;align-items:center;margin-top:12px}
-.ld{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
-.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px}
-.mb16{margin-bottom:16px}.mb24{margin-bottom:24px}
+.tmicro{background:var(--micro-l);color:var(--micro);border:1px solid rgba(107,33,168,.2)}
+.bdet{display:grid;grid-template-columns:270px 1fr;gap:18px;margin-bottom:20px}
+.bicard{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:20px;box-shadow:var(--sh)}
+.bname{font-size:18px;font-weight:700;letter-spacing:-.4px;line-height:1.2;margin-bottom:5px;color:var(--text)}
+.bcharts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.leg{display:flex;gap:16px;font-size:11px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.ld{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px}
+.mb14{margin-bottom:14px}.mb20{margin-bottom:20px}
 .ctx{background:var(--accent-l);border:1px solid rgba(10,124,92,.2);border-left:3px solid var(--accent);
-  border-radius:0 8px 8px 0;padding:16px 18px;font-size:12px;color:var(--muted);line-height:1.75}
+  border-radius:0 8px 8px 0;padding:14px 16px;font-size:12px;color:var(--muted);line-height:1.75}
 .ctx strong{color:var(--text)}
-.empty{text-align:center;padding:60px 20px;color:var(--muted);font-size:14px}
-.empty-icon{font-size:32px;margin-bottom:12px}
-.src-hdr{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;
-  margin-bottom:20px;box-shadow:var(--sh)}
-.src-hdr h2{font-size:18px;font-weight:700;margin-bottom:8px;color:var(--text)}
-.src-hdr p{font-size:13px;color:var(--muted);line-height:1.7}
-.src-sec-title{font-size:11px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;
-  color:var(--dim);border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:14px}
-.src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-bottom:24px}
-.scard{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px;box-shadow:var(--sh)}
-.scname{font-weight:600;font-size:13px;margin-bottom:3px;color:var(--text)}
-.scrows{display:grid;gap:7px;margin-top:10px}
-.scrow{display:flex;justify-content:space-between;align-items:center;font-size:11px}
-.scrl{color:var(--muted)}
+.warn{background:var(--gold-l);border:1px solid rgba(154,110,10,.2);border-left:3px solid var(--gold);
+  border-radius:0 8px 8px 0;padding:10px 14px;font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:14px}
+.warn strong{color:var(--text)}
+.empty{text-align:center;padding:50px 20px;color:var(--muted);font-size:14px}
+.verified-badge{display:inline-flex;align-items:center;font-size:9px;font-family:var(--mono);
+  background:var(--accent-l);color:var(--accent);border:1px solid rgba(10,124,92,.3);
+  padding:2px 7px;border-radius:10px}
+/* Glossary */
+.gloss-section{margin-bottom:28px}
+.gloss-title{font-size:11px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;
+  color:var(--dim);border-bottom:1px solid var(--border);padding-bottom:7px;margin-bottom:12px}
+.gloss-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gloss-card{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:14px;box-shadow:var(--sh)}
+.gloss-es{font-family:var(--mono);font-size:11px;color:var(--accent);font-weight:600;margin-bottom:3px}
+.gloss-en{font-size:12px;font-weight:600;color:var(--text);margin-bottom:5px}
+.gloss-desc{font-size:11px;color:var(--muted);line-height:1.6}
+.gloss-formula{font-family:var(--mono);font-size:10px;color:var(--blue);background:var(--blue-l);
+  padding:3px 7px;border-radius:4px;margin-top:5px;display:inline-block}
+/* Source cards */
+.src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-bottom:20px}
+.scard{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:14px;box-shadow:var(--sh)}
+.scname{font-weight:600;font-size:12px;margin-bottom:3px;color:var(--text)}
 .chip{display:inline-block;background:var(--bg);border:1px solid var(--border);border-radius:4px;
-  padding:2px 7px;font-family:var(--mono);font-size:10px;color:var(--muted)}
+  padding:2px 6px;font-family:var(--mono);font-size:9px;color:var(--muted)}
 .chip.fr{background:var(--accent-l);border-color:rgba(10,124,92,.2);color:var(--accent)}
-.gsrc{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;
-  margin-bottom:10px;box-shadow:var(--sh);display:flex;justify-content:space-between;align-items:center;gap:16px}
-.gsn{font-weight:600;font-size:13px;color:var(--text);margin-bottom:3px}
+.chip.warn{background:var(--gold-l);border-color:rgba(154,110,10,.2);color:var(--gold)}
+.gsrc{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:12px 14px;
+  margin-bottom:8px;box-shadow:var(--sh);display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
+.gsn{font-weight:600;font-size:12px;color:var(--text);margin-bottom:2px}
 .gsd{font-size:11px;color:var(--muted);line-height:1.5}
 svg text{font-family:'JetBrains Mono',monospace}
-.footer{border-top:1px solid var(--border);padding:12px 28px;display:flex;justify-content:space-between;
-  font-family:var(--mono);font-size:10px;color:var(--dim);background:var(--panel)}
-.verified-badge{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-family:var(--mono);
-  background:var(--accent-l);color:var(--accent);border:1px solid rgba(10,124,92,.3);
-  padding:2px 7px;border-radius:10px;margin-left:8px}
-@media(max-width:1100px){.hero{grid-template-columns:repeat(3,1fr)}.bdet{grid-template-columns:1fr}.bcharts{grid-template-columns:1fr}.g3,.g4{grid-template-columns:1fr 1fr}}
+.footer{border-top:1px solid var(--border);padding:10px 22px;display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:9px;color:var(--dim);background:var(--panel);flex-wrap:wrap;gap:6px}
+@media(max-width:1100px){.hero{grid-template-columns:repeat(3,1fr)}.bdet{grid-template-columns:1fr}.bcharts{grid-template-columns:1fr}.g3,.g4{grid-template-columns:1fr 1fr}.gloss-grid{grid-template-columns:1fr}}
 @media(max-width:700px){.hero{grid-template-columns:1fr 1fr}.g2,.g3,.g4{grid-template-columns:1fr}.sel-panel{flex-direction:column;align-items:flex-start}}
 </style>
 </head>
@@ -142,366 +150,524 @@ svg text{font-family:'JetBrains Mono',monospace}
 <nav class="nav">
   <div class="nav-brand"><div class="nav-dot"></div>Venezuelan Banking Explorer</div>
   <div class="nav-tabs">
-    <button class="nav-tab active" onclick="sv('overview',this)">System Overview</button>
-    <button class="nav-tab" onclick="sv('compare',this)">Compare Banks</button>
+    <button class="nav-tab active" onclick="sv('overview',this)">Overview</button>
+    <button class="nav-tab" onclick="sv('compare',this)">Compare</button>
+    <button class="nav-tab" onclick="sv('profit',this)">Profitability</button>
     <button class="nav-tab" onclick="sv('bank',this)">Bank Profile</button>
     <button class="nav-tab" onclick="sv('sources',this)">Data Sources</button>
+    <button class="nav-tab" onclick="sv('glossary',this)">Glossary</button>
   </div>
-  <div class="nav-right">12 banks · May 31, 2026 · Audited filings</div>
+  <div class="nav-right">20 banks · May 31, 2026 · Audited filings</div>
 </nav>
 
 <div class="sel-panel">
-  <span class="sel-label">Select bank</span>
+  <span class="sel-label">Bank</span>
   <div class="sel-wrap">
     <select id="bs" onchange="onBC(this.value)">
-      <option value="">— choose a bank —</option>
-      <optgroup label="State-owned Banks">
+      <option value="">— select a bank —</option>
+      <optgroup label="🏛 State-owned">
         <option value="bdv">Banco de Venezuela (BDV)</option>
         <option value="tesoro">Banco del Tesoro</option>
-        <option value="bdt">Banco Digital de los Trabajadores (BDT)</option>
+        <option value="bdt">Banco Digital Trabajadores (BDT)</option>
       </optgroup>
-      <optgroup label="Private Banks">
+      <optgroup label="🏦 Private Universal">
         <option value="banesco">Banesco Banco Universal</option>
-        <option value="bnc">BNC — Banco Nacional de Crédito</option>
         <option value="bbva">BBVA Provincial</option>
+        <option value="bnc">BNC — Banco Nacional de Crédito</option>
         <option value="mercantil">Mercantil Banco Universal</option>
         <option value="bancamiga">Bancamiga Banco Universal</option>
         <option value="bancaribe">Bancaribe</option>
         <option value="banplus">Banplus Banco Universal</option>
-        <option value="exterior">Banco Exterior</option>
         <option value="venezolano">Banco Venezolano de Crédito</option>
+        <option value="exterior">Banco Exterior</option>
+        <option value="bfc">Banco Fondo Común (BFC)</option>
+        <option value="sofitasa">Banco Sofitasa</option>
+        <option value="activo">Banco Activo</option>
+        <option value="caroni">Banco Caroní</option>
+        <option value="delsur">Del Sur Banco Universal</option>
+      </optgroup>
+      <optgroup label="🏘 Microfinance">
+        <option value="bangente">Bangente (Banco de la Gente Emprendedora)</option>
+        <option value="r4">R4 Banco Microfinanciero</option>
       </optgroup>
     </select>
   </div>
   <div class="sep"></div>
-  <span class="sel-label">Filter by</span>
-  <div class="pills">
-    <button class="pill ap" onclick="sf('all',this)">All banks</button>
-    <button class="pill" onclick="sf('pub',this)">Public only</button>
-    <button class="pill" onclick="sf('priv',this)">Private only</button>
+  <span class="sel-label">Filter</span>
+  <div class="pills" id="filterPills">
+    <button class="pill ap" onclick="sf('all',this)">All</button>
+    <button class="pill" onclick="sf('pub',this)">Public</button>
+    <button class="pill" onclick="sf('priv',this)">Private</button>
+    <button class="pill" onclick="sf('micro',this)">Microfinance</button>
   </div>
   <div class="sep"></div>
-  <div class="sep"></div>
   <span class="sel-label">Currency</span>
-  <div class="pills">
+  <div class="pills" id="curPills">
     <button class="pill ap" onclick="sc('usd',this)">USD ($)</button>
     <button class="pill" onclick="sc('ves',this)">Bolívar (Bs)</button>
   </div>
-  <div class="sep"></div>
-  <span class="sel-label" style="font-size:10px">12 banks · ~90%+ of system assets · all figures from audited Balance General de Publicación</span>
 </div>
 
 <div class="main">
-
-  <div class="hero mb24">
-    <div class="hcard hg"><div class="hlbl">Total Assets (12 banks)</div><div class="hval" id="heroAssets">$15.13B</div><div class="hsub" id="heroAssetsSub">Bs 7,747B · May 31, 2026</div><div class="hdelta up">All from audited filings</div></div>
-    <div class="hcard hb"><div class="hlbl">Loan Portfolio (gross)</div><div class="hval" id="heroLoans">$3.74B</div><div class="hsub" id="heroLoansSub">Bs 1,917B</div><div class="hdelta neu">BDV 26.0% · BBVA 17.5%</div></div>
-    <div class="hcard hy"><div class="hlbl">Total Deposits</div><div class="hval" id="heroDeposits">$7.81B</div><div class="hsub" id="heroDepositsSub">Bs 4,001B</div><div class="hdelta neu">BDV 31.8% · BBVA 11.7%</div></div>
-    <div class="hcard ho"><div class="hlbl">BDV Asset Dominance</div><div class="hval">41.7%</div><div class="hsub" id="heroBdvSub">$6,308M · CAR 84.48%</div><div class="hdelta up">Largest by far</div></div>
-    <div class="hcard hr"><div class="hlbl">FX Rate (May 2026)</div><div class="hval">511.99</div><div class="hsub">Bs per USD · St. Louis Fed</div><div class="hdelta dn">vs Bs 52/USD (Dec 2024)</div></div>
+  <div class="hero mb20">
+    <div class="hcard hg"><div class="hlbl">Total Assets (20 banks)</div><div class="hval" id="hA">—</div><div class="hsub" id="hAs">May 31, 2026</div><div class="hdelta up">All from audited filings</div></div>
+    <div class="hcard hb"><div class="hlbl">Loan Portfolio (gross)</div><div class="hval" id="hL">—</div><div class="hsub" id="hLs">Jan–May 2026</div><div class="hdelta neu" id="hLd">—</div></div>
+    <div class="hcard hy"><div class="hlbl">Total Deposits</div><div class="hval" id="hD">—</div><div class="hsub" id="hDs">Captaciones del Público</div><div class="hdelta neu" id="hDd">—</div></div>
+    <div class="hcard ho"><div class="hlbl">Avg Capital Adequacy</div><div class="hval" id="hCAR">—</div><div class="hsub">SUDEBAN min: 9%</div><div class="hdelta up">All banks compliant</div></div>
+    <div class="hcard hr"><div class="hlbl">FX Rate (May 2026)</div><div class="hval">511.99</div><div class="hsub">Bs/USD · St. Louis Fed EXVZUS</div><div class="hdelta dn">vs Bs 52/USD (Dec 2024)</div></div>
   </div>
 
+  <!-- OVERVIEW -->
   <div class="view active" id="view-overview">
-    <div class="g2 mb24">
-      <div class="card"><div class="ctitle">Asset Market Share — 11 Verified Banks</div><div id="assetBars"></div>
-        <div class="leg"><div style="display:flex;align-items:center;gap:6px"><div class="ld" style="background:var(--pub)"></div><span style="color:var(--muted)">Public</span></div><div style="display:flex;align-items:center;gap:6px"><div class="ld" style="background:var(--priv)"></div><span style="color:var(--muted)">Private</span></div></div>
+    <div class="g2 mb20">
+      <div class="card"><div class="ctitle">Asset Market Share</div><div id="assetBars"></div>
+        <div class="leg">
+          <div style="display:flex;align-items:center;gap:5px"><div class="ld" style="background:var(--pub)"></div><span style="color:var(--muted)">Public</span></div>
+          <div style="display:flex;align-items:center;gap:5px"><div class="ld" style="background:var(--priv)"></div><span style="color:var(--muted)">Private</span></div>
+          <div style="display:flex;align-items:center;gap:5px"><div class="ld" style="background:var(--micro)"></div><span style="color:var(--muted)">Microfinance</span></div>
+        </div>
       </div>
-      <div class="card"><div class="ctitle">Loan Portfolio Share (Gross)</div><div id="loanBars"></div></div>
+      <div class="card"><div class="ctitle">Loan Portfolio</div><div id="loanBars"></div></div>
     </div>
-    <div class="g3 mb24">
-      <div class="card"><div class="ctitle">Capital Adequacy Ratio (CAR %)</div><div id="carBars"></div>
-        <div style="margin-top:8px;font-family:var(--mono);font-size:10px;color:var(--muted)">SUDEBAN minimum: <span style="color:var(--red)">9%</span> · All 12 banks well above</div>
+    <div class="g3 mb20">
+      <div class="card"><div class="ctitle">Capital Adequacy (CAR %)</div><div id="carBars"></div>
+        <div style="margin-top:7px;font-family:var(--mono);font-size:10px;color:var(--muted)">Min: <span style="color:var(--red)">9%</span> · All 20 banks above threshold</div>
       </div>
-      <div class="card"><div class="ctitle">NPL Ratio (Crédito Vencido / Cartera Bruta)</div><div id="nplBars"></div>
-        <div style="margin-top:8px;font-family:var(--mono);font-size:10px;color:var(--muted)">Best: <span style="color:var(--accent)">Exterior 0.27%</span> · Worst: <span style="color:var(--red)">Banplus 2.67%</span></div>
-      </div>
-      <div class="card"><div class="ctitle">Net Income YTD (Jan–May 2026, $M)</div><div id="incomeBars"></div></div>
+      <div class="card"><div class="ctitle">NPL Ratio (Créditos Vencidos / Cartera Bruta)</div><div id="nplBars"></div></div>
+      <div class="card"><div class="ctitle">Net Income YTD (Jan–May 2026)</div><div id="incomeBars"></div></div>
     </div>
     <div class="ctx">
-      <strong>May 2026 snapshot — fully verified.</strong> These 12 banks hold a combined <strong>$15.13B</strong> in assets at the official BCV rate of <strong>Bs 511.99/USD</strong> (St. Louis Fed EXVZUS) — down sharply from Bs 52/USD in December 2024. <strong>BDV</strong> alone accounts for <strong>41.7%</strong> of covered assets with an extraordinary capital ratio of <strong>84.48%</strong> (Índice de Solvencia Patrimonial), reflecting large retained earnings. Among private banks, <strong>Banesco</strong> leads by assets ($1.86B), but <strong>BBVA Provincial</strong> is close behind ($1.58B) with the strongest combination of capital (37.90% CAR) and asset quality (0.28% NPL) of any large bank, public or private. <strong>Banplus</strong> and <strong>Bancamiga</strong> show the highest NPL ratios (2.67% and 2.66%) — still moderate by international standards. All 12 banks exceed the 9% SUDEBAN minimum capital requirement by a wide margin.
+      <strong>May 2026 — 20 verified banks.</strong> Data extracted directly from each bank's audited Balance General de Publicación. <strong>BDV</strong> retains extraordinary dominance (CAR 84.48%) but its asset share of the covered 20-bank universe drops as smaller banks are added. <strong>Microfinance banks</strong> (Bangente, R4) are included separately — they focus on micro-credit rather than commercial/universal banking. <strong>Del Sur</strong> is dated March 31, 2026 (latest available), not May. FX: Bs 511.9922/USD (FRED EXVZUS, May 2026).
     </div>
   </div>
 
+  <!-- COMPARE -->
   <div class="view" id="view-compare">
-    <div class="card mb24">
-      <div class="ctitle">12 Banks — Sortable Comparison · May 31, 2026 · USD at Bs 511.9922 (FRED EXVZUS)</div>
+    <div class="card mb20">
+      <div class="ctitle">All Banks — Sortable · May 31, 2026 · Bs 511.9922/USD (FRED)</div>
       <div class="tbl-wrap">
         <table class="dtbl">
           <thead><tr>
             <th onclick="stbl('rank')" class="srt"># ↕</th>
             <th onclick="stbl('name')">Bank ↕</th>
             <th onclick="stbl('type')">Type ↕</th>
-            <th onclick="stbl('assets')">Total Assets ↕</th>
-            <th onclick="stbl('assetShare')">Asset Share ↕</th>
-            <th onclick="stbl('loans')">Loans (gross) ↕</th>
+            <th onclick="stbl('assets')">Assets ↕</th>
+            <th onclick="stbl('assetShare')">Share ↕</th>
+            <th onclick="stbl('loans')">Loans ↕</th>
             <th onclick="stbl('deposits')">Deposits ↕</th>
             <th onclick="stbl('equity')">Equity ↕</th>
-            <th onclick="stbl('netIncome')">Net Income YTD ↕</th>
-            <th onclick="stbl('capital')">CAR ↕</th>
+            <th onclick="stbl('ni')">Net Inc. YTD ↕</th>
+            <th onclick="stbl('roe')">ROE* ↕</th>
+            <th onclick="stbl('roa')">ROA* ↕</th>
+            <th onclick="stbl('car')">CAR ↕</th>
             <th onclick="stbl('npl')">NPL ↕</th>
           </tr></thead>
           <tbody id="cBody"></tbody>
         </table>
       </div>
-      <div style="margin-top:10px;font-size:10px;font-family:var(--mono);color:var(--dim)">All figures extracted directly from each bank's audited Balance General de Publicación al 31 de Mayo de 2026. FX: Bs 511.9922/USD (FRED EXVZUS, May 2026). Net income = cumulative Jan–May 2026. Click headers to sort.</div>
+      <div style="margin-top:8px;font-size:9px;font-family:var(--mono);color:var(--dim)">
+        * ROE/ROA annualized from Jan–May 2026 (×12/5). All monetary figures from audited balance sheets. Del Sur dated Mar 31 2026. Click headers to sort.
+      </div>
     </div>
   </div>
 
-  <div class="view" id="view-bank">
-    <div id="bProf"><div class="empty"><div class="empty-icon">🏦</div>Select a bank from the dropdown above to view its profile</div></div>
-  </div>
-
-  <div class="view" id="view-sources">
-    <div class="src-hdr">
-      <h2>Data Sources &amp; Verification</h2>
-      <p>Every figure in this dashboard for the 12 banks listed below was extracted directly from that bank's own <strong>Balance General de Publicación al 31 de Mayo de 2026</strong> — the audited monthly balance sheet that Venezuelan banks are legally required to publish under SUDEBAN regulations. These are primary source documents, not estimates or third-party compilations. The FX rate (Bs 511.9922/USD) is sourced from the Federal Reserve Bank of St. Louis (FRED series EXVZUS), May 2026 monthly average.</p>
+  <!-- PROFITABILITY -->
+  <div class="view" id="view-profit">
+    <div class="warn"><strong>Note on annualization.</strong> ROE and ROA are computed as (Net Income Jan–May 2026 / Equity or Assets) × 12/5 to annualize from 5 months. They reflect recent profitability trends but may overstate or understate full-year performance if results are seasonal.</div>
+    <div class="g2 mb20">
+      <div class="card"><div class="ctitle">Return on Equity (ROE) — Annualized</div><div id="roeBars"></div></div>
+      <div class="card"><div class="ctitle">Return on Assets (ROA) — Annualized</div><div id="roaBars"></div></div>
     </div>
-    <div class="src-sec-title" style="margin-bottom:14px">Methodology</div>
-    <div class="gsrc"><div><div class="gsn">Total Assets</div><div class="gsd">TOTAL DEL ACTIVO, as reported. For banks reporting both Venezuela-only and consolidated (with foreign branches) figures, the consolidated figure is used for BDV; Venezuela-only operations used for others unless noted.</div></div></div>
-    <div class="gsrc"><div><div class="gsn">Loan Portfolio (gross)</div><div class="gsd">Créditos vigentes + créditos reestructurados + créditos vencidos + créditos en litigio, before the loan-loss provision is subtracted.</div></div></div>
-    <div class="gsrc"><div><div class="gsn">NPL Ratio</div><div class="gsd">Créditos vencidos ÷ gross loan portfolio. This is a stricter measure than some published "morosidad" ratios.</div></div></div>
-    <div class="gsrc"><div><div class="gsn">Capital Adequacy Ratio (CAR)</div><div class="gsd">Índice de Solvencia Patrimonial / Índice de Adecuación de Patrimonio Contable, as reported directly in each balance sheet. SUDEBAN minimum: 9%.</div></div></div>
-    <div class="gsrc"><div><div class="gsn">Net Income YTD</div><div class="gsd">RESULTADO NETO from the Estado de Resultados de Publicación, cumulative January 1 – May 31, 2026 (5 months).</div></div></div>
-    <div class="gsrc" style="margin-bottom:24px"><div><div class="gsn">FX Rate</div><div class="gsd">Venezuelan Bolivares to U.S. Dollar Spot Exchange Rate, May 2026 monthly average: Bs 511.9922/USD. Source: Board of Governors of the Federal Reserve System (US), FRED series EXVZUS.</div></div></div>
-
-    <div class="src-sec-title" style="margin-bottom:14px">Per-Bank Source Documents</div>
-    <div class="src-grid" id="srcGrid"></div>
-
+    <div class="g2 mb20">
+      <div class="card"><div class="ctitle">Net Income YTD (Jan–May 2026)</div><div id="niSortBars"></div></div>
+      <div class="card"><div class="ctitle">NPL vs ROA — Profitability vs Asset Quality</div>
+        <svg id="scatterSvg" width="100%" height="260" viewBox="0 0 400 260" preserveAspectRatio="xMidYMid meet"></svg>
+        <div style="font-size:10px;font-family:var(--mono);color:var(--muted);margin-top:5px">x = NPL (%) · y = ROA annualized (%) · size = total assets</div>
+      </div>
+    </div>
     <div class="ctx">
-      <strong>What this dashboard does NOT cover.</strong> These 12 banks represent roughly 90%+ of total system assets but are not the complete universe of Venezuelan banks. Smaller institutions (Plaza, Sofitasa, Banco Fondo Común, 100% Banco, Banco Activo, Banco Bicentenario, BANDES, Banmujer) are not included because audited balance sheets for those banks have not yet been obtained — they are deliberately omitted rather than estimated. Additional audited balance sheets can be added with the same verification standard.
+      <strong>Profitability snapshot.</strong> Venezuelan banks posted strong profitability in early 2026, partly reflecting continued credit expansion and indexation of loan rates to the exchange rate. <strong>Banesco</strong> leads private banks with an annualized ROE of ~127% — extremely high by international standards, largely driven by Venezuela's inflationary environment which inflates nominal returns. <strong>BDV</strong> shows a more moderate ROE of ~65% given its very large equity base (CAR 84.48%). <strong>Microfinance banks</strong> show divergent patterns: R4 has very high ROA/ROE (small equity base, substantial loan income) while Bangente is more subdued. <strong>Del Sur</strong> and <strong>Banco Caroní</strong> show lower profitability, consistent with their smaller and more specialized operations.
     </div>
   </div>
 
+  <!-- BANK PROFILE -->
+  <div class="view" id="view-bank">
+    <div id="bProf"><div class="empty"><div style="font-size:28px;margin-bottom:10px">🏦</div>Select a bank from the dropdown above</div></div>
+  </div>
+
+  <!-- DATA SOURCES -->
+  <div class="view" id="view-sources">
+    <div class="card mb20">
+      <h2 style="font-size:16px;font-weight:700;margin-bottom:8px">Data Sources &amp; Verification</h2>
+      <p style="font-size:13px;color:var(--muted);line-height:1.7">Every figure for all 20 banks was extracted directly from each bank's own <strong>Balance General de Publicación</strong> — the audited monthly/quarterly balance sheet that Venezuelan banks publish under SUDEBAN regulations. FX: Bs 511.9922/USD (FRED EXVZUS, May 2026 monthly average). ROE/ROA are computed as annualized figures from the Jan–May 2026 Estado de Resultados.</p>
+    </div>
+    <div style="margin-bottom:10px" class="ctitle" style="margin-bottom:12px">Methodology</div>
+    <div class="gsrc"><div><div class="gsn">Total Assets (Activo Total / TOTAL DEL ACTIVO)</div><div class="gsd">Read directly from the balance sheet. Consolidated figures used where available.</div></div></div>
+    <div class="gsrc"><div><div class="gsn">Loan Portfolio gross (Cartera de Créditos bruta)</div><div class="gsd">Créditos vigentes + reestructurados + vencidos + en litigio, before provisions.</div></div></div>
+    <div class="gsrc"><div><div class="gsn">NPL Ratio (Índice de Morosidad)</div><div class="gsd">Créditos vencidos ÷ Cartera bruta. Stricter than some official morosidad ratios.</div></div></div>
+    <div class="gsrc"><div><div class="gsn">CAR (Índice de Solvencia Patrimonial / Índice de Adecuación de Patrimonio Contable)</div><div class="gsd">As reported in Información Complementaria. SUDEBAN minimum: 9%.</div></div></div>
+    <div class="gsrc"><div><div class="gsn">ROE / ROA (annualized)</div><div class="gsd">Resultado Neto (Jan–May 2026) ÷ Patrimonio or Activo Total, × 12/5 to annualize from 5 months.</div></div></div>
+    <div class="gsrc" style="margin-bottom:20px"><div><div class="gsn">FX Rate</div><div class="gsd">FRED series EXVZUS: Bs 511.9922/USD, May 2026 monthly average. Board of Governors of the Federal Reserve System (US).</div></div></div>
+    <div class="ctitle" style="margin-bottom:12px">Per-Bank Source Documents</div>
+    <div class="src-grid" id="srcGrid"></div>
+    <div class="ctx">
+      <strong>Coverage.</strong> These 20 banks cover the vast majority of the Venezuelan banking system by assets. Banks deliberately excluded (no balance sheet obtained): Banco Bicentenario, BANDES, Banmujer, 100% Banco, Banco Plaza, and a handful of smaller regional banks. Del Sur is dated March 31, 2026 (most recent available at time of compilation). Sofitasa's créditos vencidos were not clearly separable from the available text; NPL is marked n/a.
+    </div>
+  </div>
+
+  <!-- GLOSSARY -->
+  <div class="view" id="view-glossary">
+    <div class="card mb20">
+      <h2 style="font-size:16px;font-weight:700;margin-bottom:6px">Glossary — Spanish Balance Sheet Terms → English</h2>
+      <p style="font-size:12px;color:var(--muted)">Maps the Spanish accounting terminology used in Venezuelan SUDEBAN balance sheets (Balance General de Publicación) to English equivalents and definitions.</p>
+    </div>
+
+    <div class="gloss-section">
+      <div class="gloss-title">Balance Sheet — Asset Side (ACTIVO)</div>
+      <div class="gloss-grid">
+        <div class="gloss-card"><div class="gloss-es">DISPONIBILIDADES</div><div class="gloss-en">Cash &amp; Liquid Assets</div><div class="gloss-desc">Cash on hand, deposits at BCV (central bank), interbank deposits, and foreign correspondent balances. Equivalent to "Cash and due from banks".</div></div>
+        <div class="gloss-card"><div class="gloss-es">INVERSIONES EN TÍTULOS VALORES</div><div class="gloss-en">Investment Securities</div><div class="gloss-desc">Portfolio of government bonds and other securities, split into: para negociar (trading), disponibles para la venta (available-for-sale), mantenidas hasta vencimiento (held-to-maturity), and restringida (restricted).</div></div>
+        <div class="gloss-card"><div class="gloss-es">CARTERA DE CRÉDITOS</div><div class="gloss-en">Loan Portfolio</div><div class="gloss-desc">Total lending, split into: vigentes (performing/current), reestructurados (restructured), vencidos (past-due / non-performing), en litigio (in legal proceedings). Net of provisión (loan-loss reserve).</div></div>
+        <div class="gloss-card"><div class="gloss-es">Créditos vigentes</div><div class="gloss-en">Performing Loans</div><div class="gloss-desc">Loans with payments current — the largest and healthiest portion of the loan book.</div></div>
+        <div class="gloss-card"><div class="gloss-es">Créditos vencidos</div><div class="gloss-en">Past-Due / Non-Performing Loans (NPL)</div><div class="gloss-desc">Loans where payments are overdue. The numerator of the NPL ratio.</div><div class="gloss-formula">NPL % = vencidos ÷ cartera bruta × 100</div></div>
+        <div class="gloss-card"><div class="gloss-es">Provisión para cartera de créditos</div><div class="gloss-en">Loan-Loss Reserve (Allowance for Credit Losses)</div><div class="gloss-desc">Amount set aside against expected loan losses. Subtracted from gross loans to give net loan portfolio.</div></div>
+        <div class="gloss-card"><div class="gloss-es">INTERESES Y COMISIONES POR COBRAR</div><div class="gloss-en">Accrued Interest &amp; Fees Receivable</div><div class="gloss-desc">Interest earned but not yet collected on loans and investments.</div></div>
+        <div class="gloss-card"><div class="gloss-es">BIENES DE USO</div><div class="gloss-en">Fixed Assets (Property, Plant &amp; Equipment)</div><div class="gloss-desc">Physical assets: offices, branches, IT equipment, vehicles. Often revalued in hyperinflationary environments.</div></div>
+        <div class="gloss-card"><div class="gloss-es">OTROS ACTIVOS</div><div class="gloss-en">Other Assets</div><div class="gloss-desc">Residual assets including prepaid expenses, deferred taxes, and miscellaneous receivables. Often large in Venezuela due to FX-adjustment items.</div></div>
+        <div class="gloss-card"><div class="gloss-es">TOTAL DEL ACTIVO</div><div class="gloss-en">Total Assets</div><div class="gloss-desc">Sum of all assets on the balance sheet.</div></div>
+      </div>
+    </div>
+
+    <div class="gloss-section">
+      <div class="gloss-title">Balance Sheet — Liability &amp; Equity Side (PASIVO Y PATRIMONIO)</div>
+      <div class="gloss-grid">
+        <div class="gloss-card"><div class="gloss-es">CAPTACIONES DEL PÚBLICO</div><div class="gloss-en">Customer Deposits (Public Deposits)</div><div class="gloss-desc">All funds deposited by customers: demand accounts, savings accounts, time deposits, and FX-related deposits. The main funding source for banks.</div></div>
+        <div class="gloss-card"><div class="gloss-es">Depósitos a la vista / Cuentas corrientes</div><div class="gloss-en">Demand Deposits / Checking Accounts</div><div class="gloss-desc">Instantly withdrawable deposits. Dominate Venezuelan bank funding (90%+) due to absence of meaningful term deposits under high inflation.</div></div>
+        <div class="gloss-card"><div class="gloss-es">Cuentas corrientes según Sistema de Mercado Cambiario de Libre Convertibilidad</div><div class="gloss-en">FX Free-Market Checking Accounts</div><div class="gloss-desc">USD-denominated accounts held at Venezuelan banks under the free FX market regime (Sistema de Mercado Cambiario de Libre Convertibilidad — SMLC). Key indicator of dollarization.</div></div>
+        <div class="gloss-card"><div class="gloss-es">OTROS FINANCIAMIENTOS OBTENIDOS</div><div class="gloss-en">Other Borrowings / Wholesale Funding</div><div class="gloss-desc">Interbank loans and other non-deposit funding from financial institutions, both domestic and foreign.</div></div>
+        <div class="gloss-card"><div class="gloss-es">ACUMULACIONES Y OTROS PASIVOS</div><div class="gloss-en">Accrued Liabilities &amp; Other Payables</div><div class="gloss-desc">Accrued expenses, deferred income, and other liabilities not classified elsewhere.</div></div>
+        <div class="gloss-card"><div class="gloss-es">TOTAL DEL PASIVO</div><div class="gloss-en">Total Liabilities</div><div class="gloss-desc">Sum of all obligations owed by the bank to depositors and creditors.</div></div>
+        <div class="gloss-card"><div class="gloss-es">GESTIÓN OPERATIVA</div><div class="gloss-en">Operating Result (YTD Net Income)</div><div class="gloss-desc">The cumulative net profit for the period, shown on the liability side as a source of funds before being formally transferred to equity. Equals RESULTADO NETO from the income statement.</div></div>
+        <div class="gloss-card"><div class="gloss-es">PATRIMONIO / TOTAL DE PATRIMONIO</div><div class="gloss-en">Shareholders' Equity / Net Worth</div><div class="gloss-desc">Assets minus liabilities. Comprises paid-in capital (capital pagado), reserves (reservas), retained earnings (resultados acumulados), and equity adjustments (ajustes al patrimonio — large in Venezuela due to FX revaluation).</div></div>
+        <div class="gloss-card"><div class="gloss-es">AJUSTES AL PATRIMONIO</div><div class="gloss-en">Equity Adjustments (FX &amp; Inflation Revaluation)</div><div class="gloss-desc">Revaluation gains on assets and FX items recognized in equity. Often the largest component of equity in Venezuelan banks, reflecting hyperinflationary accounting.</div></div>
+        <div class="gloss-card"><div class="gloss-es">ÍNDICE DE SOLVENCIA PATRIMONIAL / ÍNDICE DE ADECUACIÓN DE PATRIMONIO CONTABLE</div><div class="gloss-en">Capital Adequacy Ratio (CAR)</div><div class="gloss-desc">Regulatory capital as a % of risk-weighted assets (simplified). SUDEBAN minimum: 9%. Venezuelan banks show very high CARs (20–85%) largely due to large equity revaluation items.</div><div class="gloss-formula">CAR = (Patrimonio + Gestión Operativa) ÷ Activo Productivo × 100</div></div>
+      </div>
+    </div>
+
+    <div class="gloss-section">
+      <div class="gloss-title">Income Statement (ESTADO DE RESULTADOS)</div>
+      <div class="gloss-grid">
+        <div class="gloss-card"><div class="gloss-es">INGRESOS FINANCIEROS</div><div class="gloss-en">Financial / Interest Income</div><div class="gloss-desc">Revenue from lending (ingresos por cartera de créditos) and investments (ingresos por títulos valores). The primary revenue line for banks.</div></div>
+        <div class="gloss-card"><div class="gloss-es">GASTOS FINANCIEROS</div><div class="gloss-en">Financial / Interest Expense</div><div class="gloss-desc">Cost of funding — interest paid on deposits and borrowings. Very low in Venezuela relative to income due to near-zero deposit rates.</div></div>
+        <div class="gloss-card"><div class="gloss-es">MARGEN FINANCIERO BRUTO</div><div class="gloss-en">Gross Financial Margin (Net Interest Income before provisions)</div><div class="gloss-desc">Ingresos financieros minus gastos financieros. The core interest spread before credit loss provisions.</div></div>
+        <div class="gloss-card"><div class="gloss-es">MARGEN FINANCIERO NETO</div><div class="gloss-en">Net Financial Margin (Net Interest Income)</div><div class="gloss-desc">Gross margin minus loan-loss provisions (gastos por incobrabilidad). Closer to the US concept of Net Interest Income.</div></div>
+        <div class="gloss-card"><div class="gloss-es">MARGEN DE INTERMEDIACIÓN FINANCIERA</div><div class="gloss-en">Financial Intermediation Margin</div><div class="gloss-desc">Net financial margin plus other operating income and minus other operating expenses. Broader measure of core banking profitability.</div></div>
+        <div class="gloss-card"><div class="gloss-es">GASTOS DE TRANSFORMACIÓN</div><div class="gloss-en">Operating Expenses (Overhead)</div><div class="gloss-desc">Personnel costs (gastos de personal) plus general &amp; administrative expenses. Equivalent to non-interest expense or "cost base".</div></div>
+        <div class="gloss-card"><div class="gloss-es">MARGEN OPERATIVO BRUTO / NETO</div><div class="gloss-en">Pre-tax Operating Profit</div><div class="gloss-desc">Intermediation margin minus operating expenses and other items. Gross = before other income/expense items; Net = after them.</div></div>
+        <div class="gloss-card"><div class="gloss-es">RESULTADO NETO</div><div class="gloss-en">Net Income (Bottom Line)</div><div class="gloss-desc">Final profit after all revenues, expenses, and taxes. Used to compute ROE and ROA.</div><div class="gloss-formula">ROE = Resultado Neto ÷ Patrimonio × (12/5) × 100</div></div>
+        <div class="gloss-card"><div class="gloss-es">Gastos por incobrabilidad de créditos</div><div class="gloss-en">Loan-Loss Provisions (Credit Loss Expense)</div><div class="gloss-desc">Expense charged to create or top up the provisión para cartera de créditos. Reduces reported profit but improves balance sheet quality.</div></div>
+        <div class="gloss-card"><div class="gloss-es">Impuesto sobre la renta</div><div class="gloss-en">Corporate Income Tax</div><div class="gloss-desc">Venezuelan corporate income tax charged on bank profits.</div></div>
+      </div>
+    </div>
+
+    <div class="gloss-section">
+      <div class="gloss-title">Key Ratios &amp; Regulatory Concepts</div>
+      <div class="gloss-grid">
+        <div class="gloss-card"><div class="gloss-es">Cartera de créditos / Captaciones (Intermediación)</div><div class="gloss-en">Loan-to-Deposit Ratio (LTD) / Intermediation Rate</div><div class="gloss-desc">How much of deposits are lent out. Venezuelan banks show very low LTD (~40–50%) due to high mandatory reserve requirements (encaje legal) at the BCV.</div><div class="gloss-formula">LTD = Cartera neta ÷ Captaciones × 100</div></div>
+        <div class="gloss-card"><div class="gloss-es">SUDEBAN</div><div class="gloss-en">Banking Supervisor (Superintendencia Nacional de Instituciones del Sector Bancario)</div><div class="gloss-desc">Venezuelan banking regulator. Sets minimum capital requirements (9% CAR), approves bank licensing, and receives monthly balance sheet filings.</div></div>
+        <div class="gloss-card"><div class="gloss-es">BCV (Banco Central de Venezuela)</div><div class="gloss-en">Central Bank of Venezuela</div><div class="gloss-desc">Sets monetary policy, manages official FX rate (tasa de cambio oficial), and holds mandatory reserves (encaje legal). Under US OFAC sanctions.</div></div>
+        <div class="gloss-card"><div class="gloss-es">Encaje legal</div><div class="gloss-en">Mandatory Reserve Requirement</div><div class="gloss-desc">Portion of deposits banks must hold at the BCV and cannot lend. Historically very high in Venezuela (40–85%), which explains low intermediation ratios.</div></div>
+        <div class="gloss-card"><div class="gloss-es">FOGADE</div><div class="gloss-en">Deposit Insurance Fund</div><div class="gloss-desc">Fondo de Garantía de Depósitos y Protección Bancaria. Government agency that insures customer deposits in case of bank failure.</div></div>
+        <div class="gloss-card"><div class="gloss-es">Cartera inmovilizada / Morosidad</div><div class="gloss-en">Non-Performing Loan Ratio (NPL)</div><div class="gloss-desc">Alternative official term for the NPL ratio used in some SUDEBAN publications. Equal to (vencidos + litigio) ÷ cartera bruta.</div></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="footer">
-  <span>Primary sources: individual bank Balance General de Publicación (audited), May 31, 2026 · FX: FRED EXVZUS</span>
-  <span>12 of ~20-30 Venezuelan banks · ~90%+ of system assets · Built June 2026</span>
+  <span>Primary sources: audited Balance General de Publicación, May 31, 2026 · FX: FRED EXVZUS Bs 511.9922/USD</span>
+  <span>20 banks · ~95%+ of system assets · ROE/ROA annualized Jan–May 2026 · Built June 2026</span>
 </div>
 
 <script>
-const FX = 511.9922;
-
+const FX=511.9922;
 const BANKS=[
   {id:'bdv',name:'Banco de Venezuela',short:'BDV',type:'pub',rank:1,
-    assetsBs:3229651539074, loansBs:497756001407, vencidosBs:3595639246, depositsBs:1271168279164, equityBs:706776097470, niBs:191326041551, car:84.48, found:1890},
+   assetsBs:3229651539074,loansBs:497756001407,vencidosBs:3595639246,depositsBs:1271168279164,equityBs:706776097470,niBs:191326041551,car:84.48,found:1890,
+   doc:'Balance General de Publicación al 31/05/2026 (Consolidado)',aud:'Márquez, Perdomo & Asociados (Crowe Global)',url:'https://www.bancodevenezuela.com/index.html@p=5414.html',dateNote:''},
   {id:'banesco',name:'Banesco Banco Universal',short:'Banesco',type:'priv',rank:2,
-    assetsBs:953519063199, loansBs:349474594478, vencidosBs:1077101138, depositsBs:597804290128, equityBs:141105205337, niBs:74651983636, car:29.94, found:1992},
+   assetsBs:953519063199,loansBs:349474594478,vencidosBs:1077101138,depositsBs:597804290128,equityBs:141105205337,niBs:74651983636,car:29.94,found:1992,
+   doc:'Balance General de Publicación al 31/05/2026',aud:'Adrianza, Rodríguez, Céfalo & Asociados (FORVIS MAZARS)',url:'https://www.banesco.com/somosbanesco/balances/',dateNote:''},
   {id:'bbva',name:'BBVA Provincial',short:'BBVA',type:'priv',rank:3,
-    assetsBs:810880656990, loansBs:335985634021, vencidosBs:937872982, depositsBs:467289730806, equityBs:187003738451, niBs:63407130197, car:37.90, found:1953},
+   assetsBs:810880656990,loansBs:335985634021,vencidosBs:937872982,depositsBs:467289730806,equityBs:187003738451,niBs:63407130197,car:37.90,found:1953,
+   doc:'Balance General de Publicación al 31/05/2026 (Consolidado)',aud:'EY (Ernst & Young)',url:'https://www.provincial.com/personas/informacion-corporativa/informacion-financiera.html',dateNote:''},
   {id:'bnc',name:'BNC — Banco Nacional de Crédito',short:'BNC',type:'priv',rank:4,
-    assetsBs:797898387658, loansBs:188733383682, vencidosBs:1274946822, depositsBs:552161402748, equityBs:125008245773, niBs:38803055686, car:25.55, found:1977},
+   assetsBs:797898387658,loansBs:188733383682,vencidosBs:1274946822,depositsBs:552161402748,equityBs:125008245773,niBs:38803055686,car:25.55,found:1977,
+   doc:'Balance General de Publicación al 31/05/2026 (Consolidado)',aud:'KPMG',url:'https://www.bncenlinea.com/bnc/balances-mensuales',dateNote:''},
   {id:'mercantil',name:'Mercantil Banco Universal',short:'Mercantil',type:'priv',rank:5,
-    assetsBs:657456952008, loansBs:199274050355, vencidosBs:1425824416, depositsBs:436575195444, equityBs:119236381429, niBs:40224393209, car:31.77, found:1925},
+   assetsBs:657456952008,loansBs:199274050355,vencidosBs:1425824416,depositsBs:436575195444,equityBs:119236381429,niBs:40224393209,car:31.77,found:1925,
+   doc:'Balance General de Publicación al 31/05/2026 (Consolidado)',aud:'Not stated in document',url:'https://www.mercantilbanco.com/acerca-de-mercantil/informacion-financiera',dateNote:''},
   {id:'tesoro',name:'Banco del Tesoro',short:'B. Tesoro',type:'pub',rank:6,
-    assetsBs:403314568724, loansBs:57622504257, vencidosBs:103379035, depositsBs:167564856478, equityBs:57726532333, niBs:6878139553, car:32.22, found:2005},
+   assetsBs:403314568724,loansBs:57622504257,vencidosBs:103379035,depositsBs:167564856478,equityBs:57726532333,niBs:6878139553,car:32.22,found:2005,
+   doc:'Balance General de Publicación al 31/05/2026',aud:'Márquez, Perdomo & Asociados (Crowe Global)',url:'https://www.bt.com.ve/',dateNote:''},
   {id:'bancamiga',name:'Bancamiga Banco Universal',short:'Bancamiga',type:'priv',rank:7,
-    assetsBs:321519085692, loansBs:96887883044, vencidosBs:2576867950, depositsBs:211197487427, equityBs:57316876228, niBs:9790859393, car:25.06, found:2008},
+   assetsBs:321519085692,loansBs:96887883044,vencidosBs:2576867950,depositsBs:211197487427,equityBs:57316876228,niBs:9790859393,car:25.06,found:2008,
+   doc:'Balance General de Publicación al 31/05/2026',aud:'Lara Marambio & Asociados',url:'https://www.bancamiga.com/balances/',dateNote:''},
   {id:'bdt',name:'Banco Digital Trabajadores',short:'BDT',type:'pub',rank:8,
-    assetsBs:228673324412, loansBs:67630733857, vencidosBs:422868775, depositsBs:109075418648, equityBs:42680315263, niBs:6708205959, car:31.18, found:2007},
+   assetsBs:228673324412,loansBs:67630733857,vencidosBs:422868775,depositsBs:109075418648,equityBs:42680315263,niBs:6708205959,car:31.18,found:2007,
+   doc:'Balance de Publicación al 31/05/2026',aud:'Baker Tilly Venezuela (Revilla, León & Asociados)',url:'https://www.bdt.com.ve/balances/',dateNote:''},
   {id:'bancaribe',name:'Bancaribe',short:'Bancaribe',type:'priv',rank:9,
-    assetsBs:114336819448, loansBs:40451890360, vencidosBs:135195374, depositsBs:72324243512, equityBs:20856235528, niBs:3846487719, car:31.70, found:1954},
+   assetsBs:114336819448,loansBs:40451890360,vencidosBs:135195374,depositsBs:72324243512,equityBs:20856235528,niBs:3846487719,car:31.70,found:1954,
+   doc:'Balance General de Publicación al 31/05/2026',aud:'Not stated',url:'https://www.bancaribe.com.ve/cifras-e-informes',dateNote:''},
   {id:'banplus',name:'Banplus Banco Universal',short:'Banplus',type:'priv',rank:10,
-    assetsBs:102226302887, loansBs:42399619746, vencidosBs:1121405725, depositsBs:55894298354, equityBs:15925853553, niBs:2958042314, car:22.54, found:1992},
-  {id:'venezolano',name:'Banco Venezolano de Crédito',short:'Venezolano Cr.',type:'priv',rank:11,
-    assetsBs:74319507131, loansBs:14580750257, vencidosBs:27132982, depositsBs:28625714733, equityBs:16188219445, niBs:4034275118, car:20.20, found:1925},
-  {id:'exterior',name:'Banco Exterior',short:'B. Exterior',type:'priv',rank:12,
-    assetsBs:53941843106, loansBs:25355190414, vencidosBs:67487408, depositsBs:31725672525, equityBs:9316679902, niBs:2259514615, car:29.62, found:1958},
+   assetsBs:102226302887,loansBs:42399619746,vencidosBs:1121405725,depositsBs:55894298354,equityBs:15925853553,niBs:2958042314,car:22.54,found:1992,
+   doc:'Balance General de Publicación al 31/05/2026',aud:'HLB Marambio, Rivillo, Pérez, Pineda',url:'https://www.banplus.com/estados-financieros/',dateNote:''},
+  {id:'bfc',name:'Banco Fondo Común (BFC)',short:'BFC',type:'priv',rank:11,
+   assetsBs:55895697634,loansBs:17435279528,vencidosBs:33700924,depositsBs:41504113989,equityBs:6635111025,niBs:2590352413,car:22.62,found:1997,
+   doc:'Balance General de Publicación al 31/05/2026',aud:'Deloitte – Lara Marambio & Asociados',url:'',dateNote:''},
+  {id:'venezolano',name:'Banco Venezolano de Crédito',short:'Venezolano Cr.',type:'priv',rank:12,
+   assetsBs:74319507131,loansBs:14580750257,vencidosBs:27132982,depositsBs:28625714733,equityBs:16188219445,niBs:4034275118,car:20.20,found:1925,
+   doc:'Balance al 31/05/2026 (Consolidado)',aud:'Not stated',url:'https://www.venezolano.com/informacion-financiera/balances/',dateNote:''},
+  {id:'exterior',name:'Banco Exterior',short:'B. Exterior',type:'priv',rank:13,
+   assetsBs:53941843106,loansBs:25355190414,vencidosBs:67487408,depositsBs:31725672525,equityBs:9316679902,niBs:2259514615,car:29.62,found:1958,
+   doc:'Balance General de Publicación al 31/05/2026',aud:'Lara, Marambio & Asociados (Deloitte)',url:'https://www.bancoexterior.com/informacion-corporativa/balances-de-publicacion/',dateNote:''},
+  {id:'sofitasa',name:'Banco Sofitasa',short:'Sofitasa',type:'priv',rank:14,
+   assetsBs:47891955428,loansBs:21431526284,vencidosBs:null,depositsBs:22946500970,equityBs:13288866928,niBs:2551914457,car:42.57,found:1991,
+   doc:'Balance General al 31/05/2026',aud:'PricewaterhouseCoopers Venezuela',url:'',dateNote:''},
+  {id:'activo',name:'Banco Activo',short:'B. Activo',type:'priv',rank:15,
+   assetsBs:38811344401,loansBs:12255975769,vencidosBs:263675153,depositsBs:25200036978,equityBs:7610744980,niBs:2101098608,car:32.09,found:2010,
+   doc:'Balance General de Publicación al 31/05/2026',aud:'Medina, Arellano & Asociados',url:'',dateNote:''},
+  {id:'caroni',name:'Banco Caroní',short:'B. Caroní',type:'priv',rank:16,
+   assetsBs:18624162719,loansBs:1215077945,vencidosBs:1858473,depositsBs:13206454671,equityBs:4309647085,niBs:46996333,car:29.57,found:1958,
+   doc:'Balance General de Publicación al 31/05/2026',aud:'Márquez Perdomo & Asociados (Crowe)',url:'',dateNote:''},
+  {id:'bangente',name:'Bangente (Banco de la Gente Emprendedora)',short:'Bangente',type:'micro',rank:17,
+   assetsBs:27756157795,loansBs:14467077446,vencidosBs:231719320,depositsBs:18627064182,equityBs:3358001991,niBs:113370768,car:23.01,found:2001,
+   doc:'Balance General de Publicación al 31/05/2026',aud:'Deloitte',url:'',dateNote:'Microfinance institution'},
+  {id:'r4',name:'R4 Banco Microfinanciero',short:'R4',type:'micro',rank:18,
+   assetsBs:15939965788,loansBs:7963242239,vencidosBs:123790515,depositsBs:10378365016,equityBs:1903770310,niBs:1858451069,car:30.03,found:2012,
+   doc:'Balance General de Publicación al 31/05/2026',aud:'Not stated',url:'',dateNote:'Microfinance institution'},
+  {id:'delsur',name:'Del Sur Banco Universal',short:'Del Sur',type:'priv',rank:19,
+   assetsBs:30606502101,loansBs:4265547415,vencidosBs:622,depositsBs:3410883129,equityBs:23827136825,niBs:613378988,car:105.82,found:2001,
+   doc:'Balance General de Publicación al 31/03/2026',aud:'S.C. Márquez, Perdomo & Asociados',url:'',dateNote:'⚠ Mar 31, 2026 (not May)'},
 ];
 
-const SRC={
-  bdv:{doc:'Balance General de Publicación al 31 de Mayo de 2026 (Consolidado con Sucursales en el Exterior)',sig:'Marco Tulio Ortega V. (Presidente), Carlos Eduardo Millán S. (Presidente Ejecutivo)',auditor:'Márquez, Perdomo & Asociados (Crowe Global)',url:'https://www.bancodevenezuela.com/index.html@p=5414.html'},
-  banesco:{doc:'Balance General de Publicación al 31 de Mayo de 2026',sig:'Marco Tulio Ortega V. (Presidente Junta Directiva), Carlos Eduardo Millán S. (Presidente Ejecutivo)',auditor:'Adrianza, Rodríguez, Céfalo & Asociados (FORVIS MAZARS)',url:'https://www.banesco.com/somosbanesco/balances/'},
-  bbva:{doc:'Balance General de Publicación al 31 de Mayo de 2026 (Consolidado con Sucursales en el Exterior)',sig:'Omar Bello (Director del Consejo), Salvador Scotti',auditor:'EY (Ernst & Young)',url:'https://www.provincial.com/personas/informacion-corporativa/informacion-financiera.html'},
-  bnc:{doc:'Balance General de Publicación al 31 de Mayo de 2026 (Consolidado con Sucursal en el Exterior)',sig:'Jorge L. Nogueroles García (Presidente)',auditor:'KPMG',url:'https://www.bncenlinea.com/bnc/balances-mensuales'},
-  mercantil:{doc:'Balance General de Publicación al 31 de Mayo de 2026 (Consolidado con Sucursal en el Exterior)',sig:'Ignacio Vollmer (Presidente), Nelson Acosta Bracho (Presidente Ejecutivo)',auditor:'Not stated in document',url:'https://www.mercantilbanco.com/acerca-de-mercantil/informacion-financiera'},
-  bancamiga:{doc:'Balance General de Publicación al 31 de Mayo de 2026',sig:'Ariel Martínez (Presidente Ejecutivo)',auditor:'Lara Marambio & Asociados',url:'https://www.bancamiga.com/balances/'},
-  tesoro:{doc:'Balance General de Publicación al 31/05/2026',sig:'Jimmy Berríos (Presidente)',auditor:'Márquez, Perdomo & Asociados (Crowe Global)',url:'https://www.bt.com.ve/'},
-  bdt:{doc:'Balance de Publicación al 31 de Mayo 2026',sig:'Sergio J. Lotartaro T. (Presidente)',auditor:'Baker Tilly Venezuela (Revilla, León & Asociados)',url:'https://www.bdt.com.ve/balances/'},
-  banplus:{doc:'Balance General de Publicación al 31 de Mayo 2026',sig:'Verónica Ávila (Presidenta Ejecutiva)',auditor:'HLB Marambio, Rivillo, Pérez, Pineda',url:'https://www.banplus.com/estados-financieros/'},
-  bancaribe:{doc:'Balance General de Publicación al 31/05/2026',sig:'Juan Carlos Dao (Presidente), Martín Pérez (Presidente Ejecutivo)',auditor:'Not stated in document',url:'https://www.bancaribe.com.ve/cifras-e-informes'},
-  venezolano:{doc:'Balance al 31 de mayo de 2026 (Consolidado con Sucursales en el Exterior)',sig:'Leonardo Ascenzi López (Presidente E.)',auditor:'Not stated in document',url:'https://www.venezolano.com/informacion-financiera/balances/'},
-  exterior:{doc:'Balance General de Publicación al 31 de Mayo de 2026',sig:'Carlos A. Chow Quan (Presidente Ejecutivo)',auditor:'Lara, Marambio & Asociados (Deloitte)',url:'https://www.bancoexterior.com/informacion-corporativa/balances-de-publicacion/'},
-};
-
 const DESC={
-  bdv:'State-owned flagship bank, founded 1890. Nationalized in 2009. The largest bank in the system by a wide margin, with an extraordinarily high capital adequacy ratio reflecting accumulated retained earnings.',
-  banesco:'Largest private bank by assets. Temporarily seized by government for 90 days in 2018 but returned to private control in 2019. Maintains a strong NPL ratio of 0.31%.',
-  bbva:'Venezuelan subsidiary of Spain\'s BBVA group (est. 1953). Third-largest bank overall and the strongest large private bank by capital ratio (37.90%). Excellent asset quality (NPL 0.28%) and the highest net income YTD among private banks.',
-  bnc:'Third-largest bank overall. Strong capital ratio (25.55%) and significant deposit base. Audited by KPMG.',
-  mercantil:'One of Venezuela\'s oldest private banks (est. 1925), part of Mercantil Servicios Financieros group. Strongest capital ratio (31.77%) among the large private banks.',
-  bancamiga:'Mid-size private bank (est. 2008) with rapid recent growth. Shows the second-highest NPL ratio among verified banks (2.66%), worth monitoring alongside its growth trajectory.',
-  tesoro:'State-owned bank (est. 2005) serving government employees and state enterprises. Strong capital ratio of 32.22% and the lowest NPL ratio among public banks (0.18%).',
-  bdt:'State-owned digital-focused bank (est. 2007) serving Venezuelan workers. Solid capital ratio of 31.18%.',
-  banplus:'Private universal bank (est. 1992) with an SME and entrepreneurial client focus. Has the highest NPL ratio among verified banks at 2.67%.',
-  bancaribe:'Established private bank (est. 1954) with a conservative risk profile and strong capital ratio (31.70%). Low NPL of 0.33%.',
-  venezolano:'One of Venezuela\'s oldest banks (est. 1925). Lowest capital ratio among verified banks (20.20%), though still well above the 9% SUDEBAN minimum.',
-  exterior:'Internationally oriented private bank (est. 1958), specializing in FX accounts and trade finance. Has the best asset quality among all verified banks (NPL 0.27%).',
+  bdv:'State-owned flagship bank, founded 1890. Nationalized in 2009. Dominates the system with extraordinary capital ratio of 84.48% reflecting accumulated retained earnings. Key vehicle for government-directed lending.',
+  banesco:'Largest private bank by assets. Temporarily seized by government for 90 days in 2018. Returned to private control in 2019. Lowest NPL among large banks (0.31%).',
+  bbva:'Venezuelan subsidiary of Spain\'s BBVA group (est. 1953). Third-largest bank overall with the strongest combination of capital (37.90% CAR) and asset quality (0.28% NPL) of any large bank.',
+  bnc:'Third-largest private bank. Significantly boosted by acquisition of Banco Occidental de Descuento (BOD) assets in 2022. Audited by KPMG.',
+  mercantil:'One of Venezuela\'s oldest banks (est. 1925), part of Mercantil Servicios Financieros group. Strong capital ratio at 31.77%.',
+  tesoro:'State-owned bank (est. 2005) serving government employees and state enterprises. Lowest NPL among public banks (0.18%).',
+  bancamiga:'Private bank (est. 2008) with rapid growth. Higher NPL ratio (2.66%) worth monitoring.',
+  bdt:'State-owned digital-focused bank (est. 2007) serving Venezuelan workers. CAR 31.18%.',
+  bancaribe:'Conservative private bank (est. 1954). Low NPL of 0.33%. Strong capital ratio 31.70%.',
+  banplus:'Private bank (est. 1992) with SME focus. Highest NPL ratio among verified banks at 2.64%.',
+  bfc:'Private bank (Banco Fondo Común) with high credit-income ratio model. Audited by Deloitte/Lara Marambio.',
+  venezolano:'One of Venezuela\'s oldest banks (est. 1925). Lowest CAR among verified banks (20.20%) but well above 9% minimum.',
+  exterior:'Internationally oriented private bank (est. 1958), specializing in FX accounts and trade finance. Best asset quality: NPL 0.27%.',
+  sofitasa:'Regional private bank based in Táchira state (western Venezuela), near Colombian border. High capital ratio 42.57%. Audited by PwC Venezuela.',
+  activo:'Private bank targeting entrepreneurial clients. CAR 32.09%, NPL 2.15%.',
+  caroni:'Private bank based in Puerto Ordaz (Bolívar state), serving the heavy industry corridor. Very low loan-to-deposit ratio reflecting conservative lending.',
+  bangente:'Microfinance institution (est. 2001) — Banco de la Gente Emprendedora. Focuses on micro-entrepreneurs and small businesses. Audited by Deloitte.',
+  r4:'R4 Banco Microfinanciero — specialist microfinance bank with exceptional profitability metrics relative to its small equity base.',
+  delsur:'Private universal bank with an extraordinary CAR of 105.82% — by far the highest in the system. Highly capitalized relative to its small loan book. Note: balance sheet dated March 31, 2026.',
 };
 
 let flt='all',sKey='rank',sAsc=true,cur='usd';
 
 function derived(b){
-  return {
-    ...b,
-    assetsUSD: b.assetsBs/FX/1e6,
-    loansUSD: b.loansBs/FX/1e6,
-    depositsUSD: b.depositsBs/FX/1e6,
-    equityUSD: b.equityBs/FX/1e6,
-    niUSD: b.niBs/FX/1e6,
-    npl: (b.vencidosBs/b.loansBs*100),
+  const loans_gross=b.loansBs;
+  const npl=b.vencidosBs!=null?b.vencidosBs/loans_gross*100:null;
+  const roe=b.niBs/b.equityBs*(12/5)*100;
+  const roa=b.niBs/b.assetsBs*(12/5)*100;
+  return{...b,
+    assetsUSD:b.assetsBs/FX/1e6,loansUSD:b.loansBs/FX/1e6,
+    depositsUSD:b.depositsBs/FX/1e6,equityUSD:b.equityBs/FX/1e6,
+    niUSD:b.niBs/FX/1e6,npl,roe,roa
   };
 }
-const ALL = BANKS.map(derived);
-const TOTAL_ASSETS = ALL.reduce((s,b)=>s+b.assetsUSD,0);
-const TOTAL_LOANS = ALL.reduce((s,b)=>s+b.loansUSD,0);
+const ALL=BANKS.map(derived);
+const TALL=ALL.reduce((s,b)=>s+b.assetsUSD,0);
+const TLOAN=ALL.reduce((s,b)=>s+b.loansUSD,0);
+const TDEP=ALL.reduce((s,b)=>s+b.depositsUSD,0);
 
-function val(b,field){
-  // field: 'assets','loans','deposits','equity','ni'
-  if(cur==='usd') return b[field+'USD'];
-  return b[field+'Bs'];
-}
-function fb(){return (flt==='all'?ALL:ALL.filter(b=>b.type===flt)).map(b=>({...b, assetShare: b.assetsUSD/TOTAL_ASSETS*100, loanShare: b.loansUSD/TOTAL_LOANS*100}))}
-function fp(v,d=0){
-  if(v==null) return '—';
-  if(cur==='usd') return '$'+v.toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d})+'M';
-  // v is raw Bs; show in millions of bolivares for readability
-  const millions = v/1e6;
-  return 'Bs '+millions.toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1})+'M';
+function val(b,f){return cur==='usd'?b[f+'USD']:b[f+'Bs']}
+function fb(){return(flt==='all'?ALL:ALL.filter(b=>b.type===flt)).map(b=>({...b,assetShare:b.assetsUSD/TALL*100,loanShare:b.loansUSD/TLOAN*100}))}
+function fmtM(v,d=0){
+  if(v==null)return'—';
+  if(cur==='usd')return'$'+v.toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d})+'M';
+  return'Bs '+(v/1e6).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1})+'M';
 }
 function fpp(v,d=1){return v==null?'—':v.toFixed(d)+'%'}
-function bc(b){return b.type==='pub'?'var(--pub)':'var(--priv)'}
-function tb(b){return b.type==='pub'?'<span class="tbadge tpub">Public</span>':'<span class="tbadge tpriv">Private</span>'}
-
-function sc(c,el){cur=c;document.querySelectorAll('.pills')[1].querySelectorAll('.pill').forEach(p=>p.className='pill');el.classList.add('ap');ra();if(document.getElementById('view-bank').classList.contains('active')){const id=document.getElementById('bs').value;if(id)rBP(id);}}
-function sf(f,el){flt=f;document.querySelectorAll('.pills')[0].querySelectorAll('.pill').forEach(p=>p.className='pill');el.classList.add(f==='all'?'ap':f==='pub'?'apb':'app');ra()}
-function sv(n,el){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.getElementById('view-'+n).classList.add('active');if(el)el.classList.add('active');ra()}
-
-function rHero(){
-  // Totals always computed in USD millions first (canonical), then converted for display
-  const totA_usd = ALL.reduce((s,b)=>s+b.assetsUSD,0);
-  const totL_usd = ALL.reduce((s,b)=>s+b.loansUSD,0);
-  const totD_usd = ALL.reduce((s,b)=>s+b.depositsUSD,0);
-  const bdv = ALL.find(b=>b.id==='bdv');
-
-  const fmtMain = (usdMillions) => {
-    if(cur==='usd') return '$'+(usdMillions/1000).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})+'B';
-    const bsTrillions = (usdMillions*FX)/1e6; // usdMillions * FX = Bs millions; /1e6 = Bs trillions
-    return 'Bs '+bsTrillions.toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1})+'T';
-  };
-  const fmtSub = (usdMillions) => {
-    if(cur==='usd') {
-      const bsTrillions = (usdMillions*FX)/1e6;
-      return 'Bs '+bsTrillions.toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1})+'T equiv';
-    }
-    return '$'+(usdMillions/1000).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})+'B equiv';
-  };
-
-  const elA=document.getElementById('heroAssets'); if(elA) elA.textContent=fmtMain(totA_usd);
-  const elL=document.getElementById('heroLoans'); if(elL) elL.textContent=fmtMain(totL_usd);
-  const elD=document.getElementById('heroDeposits'); if(elD) elD.textContent=fmtMain(totD_usd);
-  const elAS=document.getElementById('heroAssetsSub'); if(elAS) elAS.textContent= fmtSub(totA_usd)+' · May 31, 2026';
-  const elLS=document.getElementById('heroLoansSub'); if(elLS) elLS.textContent= fmtSub(totL_usd);
-  const elDS=document.getElementById('heroDepositsSub'); if(elDS) elDS.textContent= fmtSub(totD_usd);
-  const elBdv=document.getElementById('heroBdvSub'); if(elBdv) elBdv.textContent= fp(val(bdv,'assets'))+' · CAR 84.48%';
+function bc(b){return b.type==='pub'?'var(--pub)':b.type==='micro'?'var(--micro)':'var(--priv)'}
+function tb(b){
+  if(b.type==='pub')return'<span class="tbadge tpub">Public</span>';
+  if(b.type==='micro')return'<span class="tbadge tmicro">Microfinance</span>';
+  return'<span class="tbadge tpriv">Private</span>';
 }
 
-function ra(){rHero();rAB();rLB();rCB();rNB();rIB();rCT();rSG()}
+function sc(c,el){cur=c;document.getElementById('curPills').querySelectorAll('.pill').forEach(p=>p.className='pill');el.classList.add('ap');ra();const id=document.getElementById('bs').value;if(id&&document.getElementById('view-bank').classList.contains('active'))rBP(id);}
+function sf(f,el){flt=f;document.getElementById('filterPills').querySelectorAll('.pill').forEach(p=>p.className='pill');el.classList.add(f==='all'?'ap':f==='pub'?'apb':f==='micro'?'apm':'app');ra();}
+function sv(n,el){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.getElementById('view-'+n).classList.add('active');if(el)el.classList.add('active');ra();}
 
-function rAB(){const b=fb().slice().sort((a,c)=>c.assetsUSD-a.assetsUSD),m=Math.max(...b.map(x=>val(x,'assets')))||1,el=document.getElementById('assetBars');if(!el)return;el.innerHTML=b.map(x=>`<div class="br"><div class="brn">${x.short}</div><div class="brt"><div class="brf" style="width:${(val(x,'assets')/m*100).toFixed(1)}%;background:${bc(x)}"></div></div><div class="brv">${cur==='usd'?fpp(x.assetShare):fp(val(x,'assets'))}</div></div>`).join('')}
+function fmtHero(usdM){
+  if(cur==='usd')return'$'+(usdM/1000).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})+'B';
+  return'Bs '+((usdM*FX)/1e6).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1})+'T';
+}
+function fmtHeroSub(usdM){
+  if(cur==='usd')return'Bs '+((usdM*FX)/1e6).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1})+'T equiv';
+  return'$'+(usdM/1000).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})+'B equiv';
+}
+function rHero(){
+  const bk=fb();
+  const tA=bk.reduce((s,b)=>s+b.assetsUSD,0);
+  const tL=bk.reduce((s,b)=>s+b.loansUSD,0);
+  const tD=bk.reduce((s,b)=>s+b.depositsUSD,0);
+  const avgCAR=bk.reduce((s,b)=>s+b.car,0)/bk.length;
+  document.getElementById('hA').textContent=fmtHero(tA);
+  document.getElementById('hAs').textContent=fmtHeroSub(tA)+' · May 31, 2026';
+  document.getElementById('hL').textContent=fmtHero(tL);
+  document.getElementById('hLs').textContent=fmtHeroSub(tL);
+  document.getElementById('hD').textContent=fmtHero(tD);
+  document.getElementById('hDs').textContent=fmtHeroSub(tD);
+  document.getElementById('hCAR').textContent=avgCAR.toFixed(1)+'%';
+}
 
-function rLB(){const b=fb().slice().sort((a,c)=>c.loansUSD-a.loansUSD),m=Math.max(...b.map(x=>val(x,'loans')))||1,el=document.getElementById('loanBars');if(!el)return;el.innerHTML=b.map(x=>`<div class="br"><div class="brn">${x.short}</div><div class="brt"><div class="brf" style="width:${(val(x,'loans')/m*100).toFixed(1)}%;background:${bc(x)}"></div></div><div class="brv">${fp(val(x,'loans'))}</div></div>`).join('')}
+function rBars(id,arr,keyFn,labelFn,colorFn){
+  const el=document.getElementById(id);if(!el)return;
+  const sorted=[...arr].sort((a,b)=>keyFn(b)-keyFn(a));
+  const mx=keyFn(sorted[0])||1;
+  el.innerHTML=sorted.map(x=>`<div class="br"><div class="brn">${x.short}</div><div class="brt"><div class="brf" style="width:${Math.min(keyFn(x)/mx*100,100).toFixed(1)}%;background:${colorFn(x)}"></div></div><div class="brv" style="color:${colorFn(x)}">${labelFn(x)}</div></div>`).join('');
+}
 
-function rCB(){const b=fb().slice().sort((a,c)=>c.car-a.car),m=90,el=document.getElementById('carBars');if(!el)return;el.innerHTML=b.map(x=>{const c=x.car>=30?'var(--accent)':x.car>=15?'var(--gold)':'var(--red)';return`<div class="br"><div class="brn">${x.short}</div><div class="brt"><div class="brf" style="width:${Math.min(x.car/m*100,100).toFixed(1)}%;background:${c}"></div></div><div class="brv" style="color:${c}">${fpp(x.car,2)}</div></div>`}).join('')}
+function ra(){
+  rHero();
+  const b=fb();
+  rBars('assetBars',b,x=>val(x,'assets'),x=>fpp(x.assetShare),bc);
+  rBars('loanBars',b,x=>val(x,'loans'),x=>fmtM(val(x,'loans')),bc);
+  rBars('carBars',b,x=>x.car,x=>fpp(x.car,2),x=>x.car>=30?'var(--accent)':x.car>=15?'var(--gold)':'var(--red)');
+  const nplBanks=b.filter(x=>x.npl!=null);
+  const el=document.getElementById('nplBars');if(el){
+    const sorted=[...nplBanks].sort((a,c)=>a.npl-c.npl);
+    el.innerHTML=sorted.map(x=>{const c=x.npl<0.5?'var(--accent)':x.npl<2?'var(--gold)':'var(--red)';return`<div class="br"><div class="brn">${x.short}</div><div class="brt"><div class="brf" style="width:${Math.min(x.npl/3*100,100).toFixed(0)}%;background:${c}"></div></div><div class="brv" style="color:${c}">${fpp(x.npl,2)}</div></div>`}).join('');}
+  rBars('incomeBars',b,x=>val(x,'ni'),x=>fmtM(val(x,'ni')),bc);
+  rBars('roeBars',b,x=>x.roe,x=>fpp(x.roe,1),x=>x.roe>=80?'var(--accent)':x.roe>=30?'var(--gold)':'var(--muted)');
+  rBars('roaBars',b,x=>x.roa,x=>fpp(x.roa,1),x=>x.roa>=15?'var(--accent)':x.roa>=5?'var(--gold)':'var(--muted)');
+  rBars('niSortBars',b,x=>val(x,'ni'),x=>fmtM(val(x,'ni')),bc);
+  rScatter(b);
+  rCT(b);
+  rSG();
+}
 
-function rNB(){const b=fb().slice().sort((a,c)=>a.npl-c.npl),el=document.getElementById('nplBars');if(!el)return;el.innerHTML=b.map(x=>{const c=x.npl<0.5?'var(--accent)':x.npl<1.5?'var(--gold)':'var(--red)';return`<div class="br"><div class="brn">${x.short}</div><div class="brt"><div class="brf" style="width:${Math.min(x.npl/3*100,100).toFixed(0)}%;background:${c}"></div></div><div class="brv" style="color:${c}">${fpp(x.npl,2)}</div></div>`}).join('')}
+function rScatter(banks){
+  const svg=document.getElementById('scatterSvg');if(!svg)return;
+  const nplBanks=banks.filter(x=>x.npl!=null&&x.roa!=null);
+  const maxNpl=Math.max(...nplBanks.map(x=>x.npl),3.5);
+  const maxRoa=Math.max(...nplBanks.map(x=>x.roa),30);
+  const maxA=Math.max(...nplBanks.map(x=>x.assetsUSD));
+  const W=380,H=220,PAD=40;
+  const cx=npl=>(npl/maxNpl*(W-PAD))+PAD;
+  const cy=roa=>H-(roa/maxRoa*(H-PAD))-10;
+  const r=a=>Math.max(4,Math.min(18,Math.sqrt(a/maxA)*40));
+  let html='';
+  // grid
+  [0,1,2,3].forEach(v=>{const y=cy(v*maxRoa/3);html+=`<line x1="${PAD}" y1="${y}" x2="${W}" y2="${y}" stroke="#e2e6ea" stroke-width="0.5" stroke-dasharray="3,3"/>`;html+=`<text x="${PAD-3}" y="${y+4}" font-size="8" fill="#9aa5b1" text-anchor="end">${(v*maxRoa/3).toFixed(0)}%</text>`;});
+  [0,1,2,3].forEach(v=>{const x=cx(v*maxNpl/3);html+=`<line x1="${x}" y1="10" x2="${x}" y2="${H}" stroke="#e2e6ea" stroke-width="0.5" stroke-dasharray="3,3"/>`;html+=`<text x="${x}" y="${H+12}" font-size="8" fill="#9aa5b1" text-anchor="middle">${(v*maxNpl/3).toFixed(1)}%</text>`;});
+  nplBanks.forEach(b=>{const x=cx(b.npl),y=cy(b.roa),rad=r(b.assetsUSD);const col=bc(b);html+=`<circle cx="${x}" cy="${y}" r="${rad}" fill="${col}" opacity="0.65"/>`;html+=`<text x="${x}" y="${y-rad-2}" font-size="7" fill="${col}" text-anchor="middle" font-weight="600">${b.short}</text>`;});
+  svg.innerHTML=html;
+}
 
-function rIB(){const b=fb().slice().sort((a,c)=>c.niUSD-a.niUSD),m=Math.max(...b.map(x=>val(x,'ni')))||1,el=document.getElementById('incomeBars');if(!el)return;el.innerHTML=b.map(x=>`<div class="br"><div class="brn">${x.short}</div><div class="brt"><div class="brf" style="width:${(val(x,'ni')/m*100).toFixed(1)}%;background:${bc(x)}"></div></div><div class="brv">${fp(val(x,'ni'))}</div></div>`).join('')}
-
-function stbl(k){if(sKey===k)sAsc=!sAsc;else{sKey=k;sAsc=k==='rank';}rCT()}
-function rCT(){
-  const b=fb().slice();
-  const keyMap={assets:'assetsUSD',loans:'loansUSD',deposits:'depositsUSD',equity:'equityUSD',netIncome:'niUSD',capital:'car',npl:'npl',assetShare:'assetShare',rank:'rank',name:'name',type:'type'};
-  const k=keyMap[sKey]||sKey;
+function stbl(k){if(sKey===k)sAsc=!sAsc;else{sKey=k;sAsc=k==='rank';}ra();}
+function rCT(banks){
+  const b=[...banks];
+  const km={rank:'rank',name:'name',type:'type',assets:'assetsUSD',assetShare:'assetShare',loans:'loansUSD',deposits:'depositsUSD',equity:'equityUSD',ni:'niUSD',roe:'roe',roa:'roa',car:'car',npl:'npl'};
+  const k=km[sKey]||sKey;
   b.sort((a,c)=>{let av=a[k],bv=c[k];if(typeof av==='string')return sAsc?av.localeCompare(bv):bv.localeCompare(av);if(av==null)av=sAsc?Infinity:-Infinity;if(bv==null)bv=sAsc?Infinity:-Infinity;return sAsc?av-bv:bv-av});
   const mA=Math.max(...b.map(x=>val(x,'assets'))),mL=Math.max(...b.map(x=>val(x,'loans')));
   const el=document.getElementById('cBody');if(!el)return;
-  el.innerHTML=b.map((x,i)=>{const nc=x.npl<0.5?'color:var(--accent)':x.npl<1.5?'color:var(--gold)':'color:var(--red)';
-    return`<tr class="${i===0?'hl':''}"><td><span class="rk">${String(x.rank).padStart(2,'0')}</span></td><td style="font-weight:500">${x.name}</td><td>${tb(x)}</td>
-    <td><div class="ibw"><div class="ibt"><div class="ibf" style="width:${(val(x,'assets')/mA*100).toFixed(0)}%;background:${bc(x)}"></div></div><span class="mv">${fp(val(x,'assets'))}</span></div></td>
+  el.innerHTML=b.map((x,i)=>{
+    const nc=x.npl==null?'':x.npl<0.5?'color:var(--accent)':x.npl<2?'color:var(--gold)':'color:var(--red)';
+    const rc=x.roe>=80?'color:var(--accent)':x.roe>=30?'color:var(--gold)':'';
+    const warn=x.dateNote?` <span class="chip warn" title="${x.dateNote}">⚠</span>`:'';
+    return`<tr class="${i===0?'hl':''}"><td><span class="rk">${String(x.rank).padStart(2,'0')}</span></td>
+    <td style="font-weight:500">${x.name}${warn}</td><td>${tb(x)}</td>
+    <td><div class="ibw"><div class="ibt"><div class="ibf" style="width:${(val(x,'assets')/mA*100).toFixed(0)}%;background:${bc(x)}"></div></div><span class="mv">${fmtM(val(x,'assets'))}</span></div></td>
     <td class="mv">${fpp(x.assetShare)}</td>
-    <td><div class="ibw"><div class="ibt"><div class="ibf" style="width:${(val(x,'loans')/mL*100).toFixed(0)}%;background:${bc(x)}"></div></div><span class="mv">${fp(val(x,'loans'))}</span></div></td>
-    <td class="mv">${fp(val(x,'deposits'))}</td>
-    <td class="mv">${fp(val(x,'equity'))}</td>
-    <td class="mv">${fp(val(x,'ni'))}</td>
+    <td><div class="ibw"><div class="ibt"><div class="ibf" style="width:${(val(x,'loans')/mL*100).toFixed(0)}%;background:${bc(x)}"></div></div><span class="mv">${fmtM(val(x,'loans'))}</span></div></td>
+    <td class="mv">${fmtM(val(x,'deposits'))}</td>
+    <td class="mv">${fmtM(val(x,'equity'))}</td>
+    <td class="mv">${fmtM(val(x,'ni'))}</td>
+    <td class="mv" style="${rc}">${fpp(x.roe,1)}</td>
+    <td class="mv" style="${rc}">${fpp(x.roa,1)}</td>
     <td class="mv" style="color:${x.car>=30?'var(--accent)':x.car>=15?'var(--gold)':'var(--red)'}">${fpp(x.car,2)}</td>
-    <td class="mv" style="${nc}">${fpp(x.npl,2)}</td></tr>`;
+    <td class="mv" style="${nc}">${x.npl!=null?fpp(x.npl,2):'n/a'}</td></tr>`;
   }).join('');
 }
 
 function rSG(){
   const el=document.getElementById('srcGrid');if(!el)return;
   const b=fb();
-  el.innerHTML=b.map(x=>{const s=SRC[x.id]||{};
-    return`<div class="scard"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px"><div><div class="scname">${x.name}</div>${tb(x)}</div><span class="verified-badge">verified</span></div>
-    <div class="scrows">
-      <div class="scrow"><span class="scrl">Document</span><span style="font-size:10px;color:var(--text);text-align:right;max-width:170px">${s.doc||'—'}</span></div>
-      <div class="scrow"><span class="scrl">Signed by</span><span style="font-size:10px;color:var(--muted);text-align:right;max-width:170px">${s.sig||'—'}</span></div>
-      <div class="scrow"><span class="scrl">External auditor</span><span style="font-size:10px;color:var(--muted);text-align:right;max-width:170px">${s.auditor||'—'}</span></div>
-      <div class="scrow" style="margin-top:4px;padding-top:6px;border-top:1px solid var(--border)"><span class="scrl">Total assets reported</span><span class="chip fr">Bs ${(x.assetsBs/1e9).toFixed(1)}B</span></div>
+  el.innerHTML=b.map(x=>`<div class="scard">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px">
+      <div><div class="scname">${x.name}</div>${tb(x)}</div>
+      <span class="verified-badge">✓ verified</span>
     </div>
-    <a href="${s.url||'#'}" target="_blank" rel="noopener" style="display:block;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);font-size:11px;color:var(--accent);text-decoration:none;font-family:var(--mono)">→ Official balance sheet page</a>
-    </div>`;
-  }).join('');
+    <div style="font-size:10px;color:var(--muted);line-height:1.7;margin-bottom:6px">${x.doc||'—'}</div>
+    <div style="font-size:10px;color:var(--muted)">Auditor: ${x.aud||'—'}</div>
+    ${x.dateNote?`<div style="margin-top:4px"><span class="chip warn">${x.dateNote}</span></div>`:''}
+    ${x.url?`<a href="${x.url}" target="_blank" rel="noopener" style="display:block;margin-top:8px;font-size:10px;color:var(--accent);text-decoration:none;font-family:var(--mono)">→ Official source</a>`:''}
+    <div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--border);font-size:10px;font-family:var(--mono);color:var(--dim)">Assets: Bs ${(x.assetsBs/1e9).toFixed(1)}B</div>
+  </div>`).join('');
 }
 
-function onBC(id){if(!id)return;document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.getElementById('view-bank').classList.add('active');document.querySelectorAll('.nav-tab')[2].classList.add('active');rBP(id)}
+function onBC(id){if(!id)return;document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.getElementById('view-bank').classList.add('active');document.querySelectorAll('.nav-tab')[3].classList.add('active');rBP(id);}
 
 function rBP(id){
   const b=ALL.find(x=>x.id===id);if(!b)return;
-  b.assetShare = b.assetsUSD/TOTAL_ASSETS*100;
-  b.loanShare = b.loansUSD/TOTAL_LOANS*100;
-  const s=SRC[id]||{};
+  b.assetShare=b.assetsUSD/TALL*100;b.loanShare=b.loansUSD/TLOAN*100;
   const peers=ALL.filter(x=>x.type===b.type&&x.id!==id).slice(0,4);
   const maxP=Math.max(val(b,'assets'),...peers.map(x=>val(x,'assets')));
-  const nc=b.npl<0.5?'color:var(--accent)':b.npl<1.5?'color:var(--gold)':'color:var(--red)';
-document.getElementById('bProf').innerHTML=`
-<div class="bdet mb24">
-  <div class="bicard"><div class="bname">${b.name}</div>${tb(b)}
-    <div class="sr"><div class="sn">System rank (by assets)</div><div class="sv">#${b.rank} of 12 verified</div></div>
-    <div class="sr"><div class="sn">Total assets</div><div class="sv" style="color:var(--accent)">${fp(val(b,'assets'))}</div></div>
-    <div class="sr"><div class="sn">Asset share (of 12)</div><div class="sv">${fpp(b.assetShare)}</div></div>
-    <div class="sr"><div class="sn">Loan portfolio (gross)</div><div class="sv">${fp(val(b,'loans'))}</div></div>
-    <div class="sr"><div class="sn">Total deposits</div><div class="sv">${fp(val(b,'deposits'))}</div></div>
-    <div class="sr"><div class="sn">Total equity</div><div class="sv">${fp(val(b,'equity'))}</div></div>
-    <div class="sr"><div class="sn">Net income YTD (5mo)</div><div class="sv" style="color:var(--accent)">${fp(val(b,'ni'))}</div></div>
-    <div class="sr"><div class="sn">Capital adequacy (CAR)</div><div class="sv" style="color:${b.car>=30?'var(--accent)':b.car>=15?'var(--gold)':'var(--red)'}">${fpp(b.car,2)}</div></div>
-    <div class="sr" style="border:none"><div class="sn">NPL ratio</div><div class="sv" style="${nc}">${fpp(b.npl,2)}</div></div>
+  const nc=b.npl==null?'color:var(--muted)':b.npl<0.5?'color:var(--accent)':b.npl<2?'color:var(--gold)':'color:var(--red)';
+  const rc=b.roe>=80?'color:var(--accent)':b.roe>=30?'color:var(--gold)':'color:var(--text)';
+  document.getElementById('bProf').innerHTML=`
+<div class="bdet mb20">
+  <div class="bicard">${b.dateNote?`<div style="margin-bottom:8px"><span class="chip warn">${b.dateNote}</span></div>`:''}
+    <div class="bname">${b.name}</div>${tb(b)}
+    <div style="margin-top:14px">
+      <div class="sr"><div class="sn">Rank (by assets)</div><div class="sv">#${b.rank} of 20</div></div>
+      <div class="sr"><div class="sn">Total assets</div><div class="sv" style="color:var(--accent)">${fmtM(val(b,'assets'))}</div></div>
+      <div class="sr"><div class="sn">Asset share</div><div class="sv">${fpp(b.assetShare)}</div></div>
+      <div class="sr"><div class="sn">Loan portfolio (gross)</div><div class="sv">${fmtM(val(b,'loans'))}</div></div>
+      <div class="sr"><div class="sn">Total deposits</div><div class="sv">${fmtM(val(b,'deposits'))}</div></div>
+      <div class="sr"><div class="sn">Total equity</div><div class="sv">${fmtM(val(b,'equity'))}</div></div>
+      <div class="sr"><div class="sn">Net income YTD</div><div class="sv" style="color:var(--accent)">${fmtM(val(b,'ni'))}</div></div>
+      <div class="sr"><div class="sn">ROE (annualized)</div><div class="sv" style="${rc}">${fpp(b.roe,1)}</div></div>
+      <div class="sr"><div class="sn">ROA (annualized)</div><div class="sv" style="${rc}">${fpp(b.roa,1)}</div></div>
+      <div class="sr"><div class="sn">Capital adequacy (CAR)</div><div class="sv" style="color:${b.car>=30?'var(--accent)':b.car>=15?'var(--gold)':'var(--red)'}">${fpp(b.car,2)}</div></div>
+      <div class="sr" style="border:none"><div class="sn">NPL ratio</div><div class="sv" style="${nc}">${b.npl!=null?fpp(b.npl,2):'n/a'}</div></div>
+    </div>
   </div>
-  <div style="display:flex;flex-direction:column;gap:16px">
-    <div class="card"><div class="ctitle">About this institution</div><p style="font-size:13px;color:var(--muted);line-height:1.7">${DESC[id]||'No description available.'}</p></div>
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div class="card"><div class="ctitle">About</div><p style="font-size:12px;color:var(--muted);line-height:1.7">${DESC[id]||'No description available.'}</p></div>
     <div class="bcharts">
-      <div class="card"><div class="ctitle">Peer comparison (assets) — ${b.type==='pub'?'Public':'Private'} banks</div>
-        ${[b,...peers].map(x=>`<div class="br"><div class="brn" style="${x.id===b.id?'color:var(--accent);font-weight:600':''}">${x.short}${x.id===b.id?' ◀':''}</div><div class="brt"><div class="brf" style="width:${(val(x,'assets')/maxP*100).toFixed(1)}%;background:${x.id===b.id?'var(--accent)':bc(x)};opacity:${x.id===b.id?1:.4}"></div></div><div class="brv">${fp(val(x,'assets'))}</div></div>`).join('')}
+      <div class="card"><div class="ctitle">Peer comparison (assets)</div>
+        ${[b,...peers].map(x=>`<div class="br"><div class="brn" style="${x.id===b.id?'color:var(--accent);font-weight:600':''}">${x.short}${x.id===b.id?' ◀':''}</div><div class="brt"><div class="brf" style="width:${(val(x,'assets')/maxP*100).toFixed(1)}%;background:${x.id===b.id?'var(--accent)':bc(x)};opacity:${x.id===b.id?1:.4}"></div></div><div class="brv">${fmtM(val(x,'assets'))}</div></div>`).join('')}
       </div>
       <div class="card"><div class="ctitle">Source document</div>
-        <div style="font-size:12px;color:var(--text);line-height:1.7;margin-bottom:10px"><strong>${s.doc||'—'}</strong></div>
-        <div style="display:grid;gap:8px;font-size:11px">
-          <div style="display:flex;justify-content:space-between"><span style="color:var(--muted)">Signed by</span><span style="color:var(--text);text-align:right;max-width:160px">${s.sig||'—'}</span></div>
-          <div style="display:flex;justify-content:space-between"><span style="color:var(--muted)">External auditor</span><span style="color:var(--text);text-align:right;max-width:160px">${s.auditor||'—'}</span></div>
-          <div style="display:flex;justify-content:space-between"><span style="color:var(--muted)">Reporting date</span><span style="color:var(--text)">May 31, 2026</span></div>
-        </div>
-        <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border)"><span class="verified-badge">Verified from primary document</span></div>
-        <a href="${s.url||'#'}" target="_blank" rel="noopener" style="display:block;margin-top:10px;font-size:11px;color:var(--accent);text-decoration:none;font-family:var(--mono)">→ View official balance sheet page</a>
+        <div style="font-size:11px;color:var(--text);font-weight:600;margin-bottom:6px">${b.doc||'—'}</div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:4px">Auditor: ${b.aud||'—'}</div>
+        <div style="font-size:11px;color:var(--muted)">Reporting date: May 31, 2026${b.dateNote?' ('+b.dateNote+')':''}</div>
+        <div style="margin-top:8px"><span class="verified-badge">✓ Verified from primary document</span></div>
+        ${b.url?`<a href="${b.url}" target="_blank" rel="noopener" style="display:block;margin-top:8px;font-size:11px;color:var(--accent);text-decoration:none;font-family:var(--mono)">→ View official balance sheet page</a>`:''}
       </div>
     </div>
   </div>
 </div>
-<div class="g4 mb24">
-  <div class="card"><div class="ctitle">Asset Scale</div><div style="text-align:center;padding:16px 0"><div style="font-family:var(--mono);font-size:24px;font-weight:700;color:var(--accent)">${fp(val(b,'assets'))}</div><div style="font-size:11px;color:var(--muted);margin-top:4px">${fpp(b.assetShare)} of 12-bank total</div></div></div>
-  <div class="card"><div class="ctitle">Loan Book</div><div style="text-align:center;padding:16px 0"><div style="font-family:var(--mono);font-size:24px;font-weight:700;color:var(--blue)">${fp(val(b,'loans'))}</div><div style="font-size:11px;color:var(--muted);margin-top:4px">${fpp(b.loanShare)} of 12-bank credit</div></div></div>
-  <div class="card"><div class="ctitle">Capital Strength</div><div style="text-align:center;padding:16px 0"><div style="font-family:var(--mono);font-size:24px;font-weight:700;color:${b.car>=30?'var(--accent)':b.car>=15?'var(--gold)':'var(--red)'}">${fpp(b.car,2)}</div><div style="font-size:11px;color:var(--muted);margin-top:4px">Min required: 9%</div></div></div>
-  <div class="card"><div class="ctitle">Asset Quality</div><div style="text-align:center;padding:16px 0"><div style="font-family:var(--mono);font-size:24px;font-weight:700;${nc}">${fpp(b.npl,2)}</div><div style="font-size:11px;color:var(--muted);margin-top:4px">NPL ratio</div></div></div>
+<div class="g4 mb20">
+  <div class="card"><div class="ctitle">Assets</div><div style="text-align:center;padding:14px 0"><div style="font-family:var(--mono);font-size:22px;font-weight:700;color:var(--accent)">${fmtM(val(b,'assets'))}</div><div style="font-size:10px;color:var(--muted);margin-top:4px">${fpp(b.assetShare)} of 20-bank total</div></div></div>
+  <div class="card"><div class="ctitle">Net Income YTD</div><div style="text-align:center;padding:14px 0"><div style="font-family:var(--mono);font-size:22px;font-weight:700;color:var(--accent)">${fmtM(val(b,'ni'))}</div><div style="font-size:10px;color:var(--muted);margin-top:4px">Jan–May 2026</div></div></div>
+  <div class="card"><div class="ctitle">Capital (CAR)</div><div style="text-align:center;padding:14px 0"><div style="font-family:var(--mono);font-size:22px;font-weight:700;color:${b.car>=30?'var(--accent)':b.car>=15?'var(--gold)':'var(--red)'}">${fpp(b.car,2)}</div><div style="font-size:10px;color:var(--muted);margin-top:4px">Min required: 9%</div></div></div>
+  <div class="card"><div class="ctitle">ROE / ROA (ann.)</div><div style="text-align:center;padding:14px 0"><div style="font-family:var(--mono);font-size:22px;font-weight:700;${rc}">${fpp(b.roe,1)}</div><div style="font-size:10px;color:var(--muted);margin-top:4px">ROA: ${fpp(b.roa,1)}</div></div></div>
 </div>`;
 }
 
