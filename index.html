@@ -115,6 +115,7 @@ table.dtbl{width:100%;border-collapse:collapse;font-size:11px}
 .verified-badge{display:inline-flex;align-items:center;font-size:9px;font-family:var(--mono);
   background:var(--accent-l);color:var(--accent);border:1px solid rgba(10,124,92,.3);
   padding:2px 7px;border-radius:10px}
+/* Glossary */
 .gloss-section{margin-bottom:28px}
 .gloss-title{font-size:11px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.1em;
   color:var(--dim);border-bottom:1px solid var(--border);padding-bottom:7px;margin-bottom:12px}
@@ -125,6 +126,7 @@ table.dtbl{width:100%;border-collapse:collapse;font-size:11px}
 .gloss-desc{font-size:11px;color:var(--muted);line-height:1.6}
 .gloss-formula{font-family:var(--mono);font-size:10px;color:var(--blue);background:var(--blue-l);
   padding:3px 7px;border-radius:4px;margin-top:5px;display:inline-block}
+/* Source cards */
 .src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-bottom:20px}
 .scard{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:14px;box-shadow:var(--sh)}
 .scname{font-weight:600;font-size:12px;margin-bottom:3px;color:var(--text)}
@@ -155,7 +157,7 @@ svg text{font-family:'JetBrains Mono',monospace}
     <button class="nav-tab" onclick="sv('sources',this)">Data Sources</button>
     <button class="nav-tab" onclick="sv('glossary',this)">Glossary</button>
   </div>
-  <div class="nav-right">23 banks · May 31, 2026 · Audited filings</div>
+  <div class="nav-right">20 banks · May 31, 2026 · Audited filings</div>
 </nav>
 
 <div class="sel-panel">
@@ -183,13 +185,10 @@ svg text{font-family:'JetBrains Mono',monospace}
         <option value="activo">Banco Activo</option>
         <option value="caroni">Banco Caroní</option>
         <option value="delsur">Del Sur Banco Universal</option>
-        <option value="cien">100% Banco (Banco Universal)</option>
       </optgroup>
       <optgroup label="🏘 Microfinance">
         <option value="bangente">Bangente (Banco de la Gente Emprendedora)</option>
         <option value="r4">R4 Banco Microfinanciero</option>
-        <option value="bancrecer">Bancrecer Banco Microfinanciero</option>
-        <option value="n58">N58 Banco Digital Microfinanciero</option>
       </optgroup>
     </select>
   </div>
@@ -211,7 +210,7 @@ svg text{font-family:'JetBrains Mono',monospace}
 
 <div class="main">
   <div class="hero mb20">
-    <div class="hcard hg"><div class="hlbl">Total Assets (23 banks)</div><div class="hval" id="hA">—</div><div class="hsub" id="hAs">May 31, 2026</div><div class="hdelta up">All from audited filings</div></div>
+    <div class="hcard hg"><div class="hlbl">Total Assets (20 banks)</div><div class="hval" id="hA">—</div><div class="hsub" id="hAs">May 31, 2026</div><div class="hdelta up">All from audited filings</div></div>
     <div class="hcard hb"><div class="hlbl">Loan Portfolio (gross)</div><div class="hval" id="hL">—</div><div class="hsub" id="hLs">Jan–May 2026</div><div class="hdelta neu" id="hLd">—</div></div>
     <div class="hcard hy"><div class="hlbl">Total Deposits</div><div class="hval" id="hD">—</div><div class="hsub" id="hDs">Captaciones del Público</div><div class="hdelta neu" id="hDd">—</div></div>
     <div class="hcard ho"><div class="hlbl">Avg Capital Adequacy</div><div class="hval" id="hCAR">—</div><div class="hsub">SUDEBAN min: 9%</div><div class="hdelta up">All banks compliant</div></div>
@@ -232,13 +231,13 @@ svg text{font-family:'JetBrains Mono',monospace}
     </div>
     <div class="g3 mb20">
       <div class="card"><div class="ctitle">Capital Adequacy (CAR %)</div><div id="carBars"></div>
-        <div style="margin-top:7px;font-family:var(--mono);font-size:10px;color:var(--muted)">Min: <span style="color:var(--red)">9%</span> · All 23 banks above threshold</div>
+        <div style="margin-top:7px;font-family:var(--mono);font-size:10px;color:var(--muted)">Min: <span style="color:var(--red)">9%</span> · All 20 banks above threshold</div>
       </div>
       <div class="card"><div class="ctitle">NPL Ratio (Créditos Vencidos / Cartera Bruta)</div><div id="nplBars"></div></div>
       <div class="card"><div class="ctitle">Net Income YTD (Jan–May 2026)</div><div id="incomeBars"></div></div>
     </div>
     <div class="ctx">
-      <strong>May 2026 — 23 verified banks.</strong> Data extracted directly from each bank's audited Balance General de Publicación. <strong>BDV</strong> retains extraordinary dominance (CAR 84.48%) but its asset share of the covered 23-bank universe drops as smaller banks are added. <strong>Microfinance banks</strong> (Bangente, R4, Bancrecer, N58) are included separately — they focus on micro-credit rather than commercial/universal banking. <strong>100% Banco</strong> (universal) has been added from its May 2026 filing. <strong>Del Sur</strong> is dated March 31, 2026 (latest available), not May. FX: Bs 511.9922/USD (FRED EXVZUS, May 2026).
+      <strong>May 2026 — 20 verified banks.</strong> Data extracted directly from each bank's audited Balance General de Publicación. <strong>BDV</strong> retains extraordinary dominance (CAR 84.48%) but its asset share of the covered 20-bank universe drops as smaller banks are added. <strong>Microfinance banks</strong> (Bangente, R4) are included separately — they focus on micro-credit rather than commercial/universal banking. <strong>Del Sur</strong> is dated March 31, 2026 (latest available), not May. FX: Bs 511.9922/USD (FRED EXVZUS, May 2026).
     </div>
   </div>
 
@@ -287,7 +286,7 @@ svg text{font-family:'JetBrains Mono',monospace}
       </div>
     </div>
     <div class="ctx">
-      <strong>Profitability snapshot.</strong> Venezuelan banks posted strong profitability in early 2026, partly reflecting continued credit expansion and indexation of loan rates to the exchange rate. <strong>Banesco</strong> leads private banks with an annualized ROE of ~127% — extremely high by international standards, largely driven by Venezuela's inflationary environment which inflates nominal returns. <strong>BDV</strong> shows a more moderate ROE of ~65% given its very large equity base (CAR 84.48%). <strong>Microfinance banks</strong> show divergent patterns: R4 has very high ROA/ROE (small equity base, substantial loan income) while Bangente is more subdued. <strong>Bancrecer</strong> shows moderate profitability (~18.6% ROE) while <strong>N58</strong> posts a higher ROE (~60%) relative to its tiny equity base. <strong>Del Sur</strong> and <strong>Banco Caroní</strong> show lower profitability, consistent with their smaller and more specialized operations.
+      <strong>Profitability snapshot.</strong> Venezuelan banks posted strong profitability in early 2026, partly reflecting continued credit expansion and indexation of loan rates to the exchange rate. <strong>Banesco</strong> leads private banks with an annualized ROE of ~127% — extremely high by international standards, largely driven by Venezuela's inflationary environment which inflates nominal returns. <strong>BDV</strong> shows a more moderate ROE of ~65% given its very large equity base (CAR 84.48%). <strong>Microfinance banks</strong> show divergent patterns: R4 has very high ROA/ROE (small equity base, substantial loan income) while Bangente is more subdued. <strong>Del Sur</strong> and <strong>Banco Caroní</strong> show lower profitability, consistent with their smaller and more specialized operations.
     </div>
   </div>
 
@@ -300,7 +299,7 @@ svg text{font-family:'JetBrains Mono',monospace}
   <div class="view" id="view-sources">
     <div class="card mb20">
       <h2 style="font-size:16px;font-weight:700;margin-bottom:8px">Data Sources &amp; Verification</h2>
-      <p style="font-size:13px;color:var(--muted);line-height:1.7">Every figure for all 23 banks was extracted directly from each bank's own <strong>Balance General de Publicación</strong> — the audited monthly/quarterly balance sheet that Venezuelan banks publish under SUDEBAN regulations. FX: Bs 511.9922/USD (FRED EXVZUS, May 2026 monthly average). ROE/ROA are computed as annualized figures from the Jan–May 2026 Estado de Resultados.</p>
+      <p style="font-size:13px;color:var(--muted);line-height:1.7">Every figure for all 20 banks was extracted directly from each bank's own <strong>Balance General de Publicación</strong> — the audited monthly/quarterly balance sheet that Venezuelan banks publish under SUDEBAN regulations. FX: Bs 511.9922/USD (FRED EXVZUS, May 2026 monthly average). ROE/ROA are computed as annualized figures from the Jan–May 2026 Estado de Resultados.</p>
     </div>
     <div style="margin-bottom:10px" class="ctitle" style="margin-bottom:12px">Methodology</div>
     <div class="gsrc"><div><div class="gsn">Total Assets (Activo Total / TOTAL DEL ACTIVO)</div><div class="gsd">Read directly from the balance sheet. Consolidated figures used where available.</div></div></div>
@@ -312,7 +311,7 @@ svg text{font-family:'JetBrains Mono',monospace}
     <div class="ctitle" style="margin-bottom:12px">Per-Bank Source Documents</div>
     <div class="src-grid" id="srcGrid"></div>
     <div class="ctx">
-      <strong>Coverage.</strong> These 23 banks cover the vast majority of the Venezuelan banking system by assets. <strong>100% Banco</strong>, <strong>Bancrecer</strong>, and <strong>N58 Banco Digital</strong> have been added from their May 2026 audited filings. Banks deliberately excluded (no balance sheet obtained): Banco Bicentenario, BANDES, Banmujer, Banco Plaza, and a handful of smaller regional banks. Del Sur is dated March 31, 2026 (most recent available at time of compilation). Sofitasa's créditos vencidos were not clearly separable from the available text; NPL is marked n/a.
+      <strong>Coverage.</strong> These 20 banks cover the vast majority of the Venezuelan banking system by assets. Banks deliberately excluded (no balance sheet obtained): Banco Bicentenario, BANDES, Banmujer, 100% Banco, Banco Plaza, and a handful of smaller regional banks. Del Sur is dated March 31, 2026 (most recent available at time of compilation). Sofitasa's créditos vencidos were not clearly separable from the available text; NPL is marked n/a.
     </div>
   </div>
 
@@ -322,6 +321,7 @@ svg text{font-family:'JetBrains Mono',monospace}
       <h2 style="font-size:16px;font-weight:700;margin-bottom:6px">Glossary — Spanish Balance Sheet Terms → English</h2>
       <p style="font-size:12px;color:var(--muted)">Maps the Spanish accounting terminology used in Venezuelan SUDEBAN balance sheets (Balance General de Publicación) to English equivalents and definitions.</p>
     </div>
+
     <div class="gloss-section">
       <div class="gloss-title">Balance Sheet — Asset Side (ACTIVO)</div>
       <div class="gloss-grid">
@@ -337,45 +337,48 @@ svg text{font-family:'JetBrains Mono',monospace}
         <div class="gloss-card"><div class="gloss-es">TOTAL DEL ACTIVO</div><div class="gloss-en">Total Assets</div><div class="gloss-desc">Sum of all assets on the balance sheet.</div></div>
       </div>
     </div>
+
     <div class="gloss-section">
       <div class="gloss-title">Balance Sheet — Liability &amp; Equity Side (PASIVO Y PATRIMONIO)</div>
       <div class="gloss-grid">
         <div class="gloss-card"><div class="gloss-es">CAPTACIONES DEL PÚBLICO</div><div class="gloss-en">Customer Deposits (Public Deposits)</div><div class="gloss-desc">All funds deposited by customers: demand accounts, savings accounts, time deposits, and FX-related deposits. The main funding source for banks.</div></div>
         <div class="gloss-card"><div class="gloss-es">Depósitos a la vista / Cuentas corrientes</div><div class="gloss-en">Demand Deposits / Checking Accounts</div><div class="gloss-desc">Instantly withdrawable deposits. Dominate Venezuelan bank funding (90%+) due to absence of meaningful term deposits under high inflation.</div></div>
-        <div class="gloss-card"><div class="gloss-es">Cuentas corrientes según Sistema de Mercado Cambiario de Libre Convertibilidad</div><div class="gloss-en">FX Free-Market Checking Accounts</div><div class="gloss-desc">USD-denominated accounts held at Venezuelan banks under the free FX market regime (SMLC). Key indicator of dollarization.</div></div>
+        <div class="gloss-card"><div class="gloss-es">Cuentas corrientes según Sistema de Mercado Cambiario de Libre Convertibilidad</div><div class="gloss-en">FX Free-Market Checking Accounts</div><div class="gloss-desc">USD-denominated accounts held at Venezuelan banks under the free FX market regime (Sistema de Mercado Cambiario de Libre Convertibilidad — SMLC). Key indicator of dollarization.</div></div>
         <div class="gloss-card"><div class="gloss-es">OTROS FINANCIAMIENTOS OBTENIDOS</div><div class="gloss-en">Other Borrowings / Wholesale Funding</div><div class="gloss-desc">Interbank loans and other non-deposit funding from financial institutions, both domestic and foreign.</div></div>
         <div class="gloss-card"><div class="gloss-es">ACUMULACIONES Y OTROS PASIVOS</div><div class="gloss-en">Accrued Liabilities &amp; Other Payables</div><div class="gloss-desc">Accrued expenses, deferred income, and other liabilities not classified elsewhere.</div></div>
         <div class="gloss-card"><div class="gloss-es">TOTAL DEL PASIVO</div><div class="gloss-en">Total Liabilities</div><div class="gloss-desc">Sum of all obligations owed by the bank to depositors and creditors.</div></div>
         <div class="gloss-card"><div class="gloss-es">GESTIÓN OPERATIVA</div><div class="gloss-en">Operating Result (YTD Net Income)</div><div class="gloss-desc">The cumulative net profit for the period, shown on the liability side as a source of funds before being formally transferred to equity. Equals RESULTADO NETO from the income statement.</div></div>
-        <div class="gloss-card"><div class="gloss-es">PATRIMONIO / TOTAL DE PATRIMONIO</div><div class="gloss-en">Shareholders' Equity / Net Worth</div><div class="gloss-desc">Assets minus liabilities. Comprises paid-in capital, reserves, retained earnings, and equity adjustments.</div></div>
+        <div class="gloss-card"><div class="gloss-es">PATRIMONIO / TOTAL DE PATRIMONIO</div><div class="gloss-en">Shareholders' Equity / Net Worth</div><div class="gloss-desc">Assets minus liabilities. Comprises paid-in capital (capital pagado), reserves (reservas), retained earnings (resultados acumulados), and equity adjustments (ajustes al patrimonio — large in Venezuela due to FX revaluation).</div></div>
         <div class="gloss-card"><div class="gloss-es">AJUSTES AL PATRIMONIO</div><div class="gloss-en">Equity Adjustments (FX &amp; Inflation Revaluation)</div><div class="gloss-desc">Revaluation gains on assets and FX items recognized in equity. Often the largest component of equity in Venezuelan banks, reflecting hyperinflationary accounting.</div></div>
-        <div class="gloss-card"><div class="gloss-es">ÍNDICE DE SOLVENCIA PATRIMONIAL</div><div class="gloss-en">Capital Adequacy Ratio (CAR)</div><div class="gloss-desc">Regulatory capital as a % of risk-weighted assets (simplified). SUDEBAN minimum: 9%.</div><div class="gloss-formula">CAR = (Patrimonio + Gestión Operativa) ÷ Activo Productivo × 100</div></div>
+        <div class="gloss-card"><div class="gloss-es">ÍNDICE DE SOLVENCIA PATRIMONIAL / ÍNDICE DE ADECUACIÓN DE PATRIMONIO CONTABLE</div><div class="gloss-en">Capital Adequacy Ratio (CAR)</div><div class="gloss-desc">Regulatory capital as a % of risk-weighted assets (simplified). SUDEBAN minimum: 9%. Venezuelan banks show very high CARs (20–85%) largely due to large equity revaluation items.</div><div class="gloss-formula">CAR = (Patrimonio + Gestión Operativa) ÷ Activo Productivo × 100</div></div>
       </div>
     </div>
+
     <div class="gloss-section">
       <div class="gloss-title">Income Statement (ESTADO DE RESULTADOS)</div>
       <div class="gloss-grid">
-        <div class="gloss-card"><div class="gloss-es">INGRESOS FINANCIEROS</div><div class="gloss-en">Financial / Interest Income</div><div class="gloss-desc">Revenue from lending and investments. The primary revenue line for banks.</div></div>
+        <div class="gloss-card"><div class="gloss-es">INGRESOS FINANCIEROS</div><div class="gloss-en">Financial / Interest Income</div><div class="gloss-desc">Revenue from lending (ingresos por cartera de créditos) and investments (ingresos por títulos valores). The primary revenue line for banks.</div></div>
         <div class="gloss-card"><div class="gloss-es">GASTOS FINANCIEROS</div><div class="gloss-en">Financial / Interest Expense</div><div class="gloss-desc">Cost of funding — interest paid on deposits and borrowings. Very low in Venezuela relative to income due to near-zero deposit rates.</div></div>
         <div class="gloss-card"><div class="gloss-es">MARGEN FINANCIERO BRUTO</div><div class="gloss-en">Gross Financial Margin (Net Interest Income before provisions)</div><div class="gloss-desc">Ingresos financieros minus gastos financieros. The core interest spread before credit loss provisions.</div></div>
-        <div class="gloss-card"><div class="gloss-es">MARGEN FINANCIERO NETO</div><div class="gloss-en">Net Financial Margin (Net Interest Income)</div><div class="gloss-desc">Gross margin minus loan-loss provisions. Closer to the US concept of Net Interest Income.</div></div>
+        <div class="gloss-card"><div class="gloss-es">MARGEN FINANCIERO NETO</div><div class="gloss-en">Net Financial Margin (Net Interest Income)</div><div class="gloss-desc">Gross margin minus loan-loss provisions (gastos por incobrabilidad). Closer to the US concept of Net Interest Income.</div></div>
         <div class="gloss-card"><div class="gloss-es">MARGEN DE INTERMEDIACIÓN FINANCIERA</div><div class="gloss-en">Financial Intermediation Margin</div><div class="gloss-desc">Net financial margin plus other operating income and minus other operating expenses. Broader measure of core banking profitability.</div></div>
-        <div class="gloss-card"><div class="gloss-es">GASTOS DE TRANSFORMACIÓN</div><div class="gloss-en">Operating Expenses (Overhead)</div><div class="gloss-desc">Personnel costs plus general &amp; administrative expenses. Equivalent to non-interest expense.</div></div>
-        <div class="gloss-card"><div class="gloss-es">MARGEN OPERATIVO BRUTO / NETO</div><div class="gloss-en">Pre-tax Operating Profit</div><div class="gloss-desc">Intermediation margin minus operating expenses and other items.</div></div>
+        <div class="gloss-card"><div class="gloss-es">GASTOS DE TRANSFORMACIÓN</div><div class="gloss-en">Operating Expenses (Overhead)</div><div class="gloss-desc">Personnel costs (gastos de personal) plus general &amp; administrative expenses. Equivalent to non-interest expense or "cost base".</div></div>
+        <div class="gloss-card"><div class="gloss-es">MARGEN OPERATIVO BRUTO / NETO</div><div class="gloss-en">Pre-tax Operating Profit</div><div class="gloss-desc">Intermediation margin minus operating expenses and other items. Gross = before other income/expense items; Net = after them.</div></div>
         <div class="gloss-card"><div class="gloss-es">RESULTADO NETO</div><div class="gloss-en">Net Income (Bottom Line)</div><div class="gloss-desc">Final profit after all revenues, expenses, and taxes. Used to compute ROE and ROA.</div><div class="gloss-formula">ROE = Resultado Neto ÷ Patrimonio × (12/5) × 100</div></div>
         <div class="gloss-card"><div class="gloss-es">Gastos por incobrabilidad de créditos</div><div class="gloss-en">Loan-Loss Provisions (Credit Loss Expense)</div><div class="gloss-desc">Expense charged to create or top up the provisión para cartera de créditos. Reduces reported profit but improves balance sheet quality.</div></div>
         <div class="gloss-card"><div class="gloss-es">Impuesto sobre la renta</div><div class="gloss-en">Corporate Income Tax</div><div class="gloss-desc">Venezuelan corporate income tax charged on bank profits.</div></div>
       </div>
     </div>
+
     <div class="gloss-section">
       <div class="gloss-title">Key Ratios &amp; Regulatory Concepts</div>
       <div class="gloss-grid">
-        <div class="gloss-card"><div class="gloss-es">Cartera de créditos / Captaciones (Intermediación)</div><div class="gloss-en">Loan-to-Deposit Ratio (LTD)</div><div class="gloss-desc">How much of deposits are lent out. Venezuelan banks show very low LTD (~40–50%) due to high mandatory reserve requirements (encaje legal) at the BCV.</div><div class="gloss-formula">LTD = Cartera neta ÷ Captaciones × 100</div></div>
-        <div class="gloss-card"><div class="gloss-es">SUDEBAN</div><div class="gloss-en">Banking Supervisor</div><div class="gloss-desc">Venezuelan banking regulator (Superintendencia Nacional de Instituciones del Sector Bancario). Sets minimum capital requirements (9% CAR) and receives monthly balance sheet filings.</div></div>
-        <div class="gloss-card"><div class="gloss-es">BCV (Banco Central de Venezuela)</div><div class="gloss-en">Central Bank of Venezuela</div><div class="gloss-desc">Sets monetary policy, manages official FX rate, and holds mandatory reserves (encaje legal). Under US OFAC sanctions.</div></div>
+        <div class="gloss-card"><div class="gloss-es">Cartera de créditos / Captaciones (Intermediación)</div><div class="gloss-en">Loan-to-Deposit Ratio (LTD) / Intermediation Rate</div><div class="gloss-desc">How much of deposits are lent out. Venezuelan banks show very low LTD (~40–50%) due to high mandatory reserve requirements (encaje legal) at the BCV.</div><div class="gloss-formula">LTD = Cartera neta ÷ Captaciones × 100</div></div>
+        <div class="gloss-card"><div class="gloss-es">SUDEBAN</div><div class="gloss-en">Banking Supervisor (Superintendencia Nacional de Instituciones del Sector Bancario)</div><div class="gloss-desc">Venezuelan banking regulator. Sets minimum capital requirements (9% CAR), approves bank licensing, and receives monthly balance sheet filings.</div></div>
+        <div class="gloss-card"><div class="gloss-es">BCV (Banco Central de Venezuela)</div><div class="gloss-en">Central Bank of Venezuela</div><div class="gloss-desc">Sets monetary policy, manages official FX rate (tasa de cambio oficial), and holds mandatory reserves (encaje legal). Under US OFAC sanctions.</div></div>
         <div class="gloss-card"><div class="gloss-es">Encaje legal</div><div class="gloss-en">Mandatory Reserve Requirement</div><div class="gloss-desc">Portion of deposits banks must hold at the BCV and cannot lend. Historically very high in Venezuela (40–85%), which explains low intermediation ratios.</div></div>
         <div class="gloss-card"><div class="gloss-es">FOGADE</div><div class="gloss-en">Deposit Insurance Fund</div><div class="gloss-desc">Fondo de Garantía de Depósitos y Protección Bancaria. Government agency that insures customer deposits in case of bank failure.</div></div>
-        <div class="gloss-card"><div class="gloss-es">Cartera inmovilizada / Morosidad</div><div class="gloss-en">Non-Performing Loan Ratio (NPL)</div><div class="gloss-desc">Alternative official term used in some SUDEBAN publications. Equal to (vencidos + litigio) ÷ cartera bruta.</div></div>
+        <div class="gloss-card"><div class="gloss-es">Cartera inmovilizada / Morosidad</div><div class="gloss-en">Non-Performing Loan Ratio (NPL)</div><div class="gloss-desc">Alternative official term for the NPL ratio used in some SUDEBAN publications. Equal to (vencidos + litigio) ÷ cartera bruta.</div></div>
       </div>
     </div>
   </div>
@@ -383,7 +386,7 @@ svg text{font-family:'JetBrains Mono',monospace}
 
 <div class="footer">
   <span>Primary sources: audited Balance General de Publicación, May 31, 2026 · FX: FRED EXVZUS Bs 511.9922/USD</span>
-  <span>23 banks · ~95%+ of system assets · ROE/ROA annualized Jan–May 2026 · Built June 2026</span>
+  <span>20 banks · ~95%+ of system assets · ROE/ROA annualized Jan–May 2026 · Built June 2026</span>
 </div>
 
 <script>
@@ -443,16 +446,7 @@ const BANKS=[
   {id:'r4',name:'R4 Banco Microfinanciero',short:'R4',type:'micro',rank:18,
    assetsBs:15939965788,loansBs:7963242239,vencidosBs:123790515,depositsBs:10378365016,equityBs:1903770310,niBs:1858451069,car:30.03,found:2012,
    doc:'Balance General de Publicación al 31/05/2026',aud:'Not stated',url:'',dateNote:'Microfinance institution'},
-  {id:'bancrecer',name:'Bancrecer Banco Microfinanciero',short:'Bancrecer',type:'micro',rank:19,
-   assetsBs:48305846238,loansBs:29843832322,vencidosBs:2285295515,depositsBs:24434576476,equityBs:14346770379,niBs:883680730,car:38.21,found:null,
-   doc:'Balance General de Publicación al 31/05/2026',aud:'Márquez Perdomo & Asociados (Crowe)',url:'',dateNote:'Microfinance institution'},
-  {id:'cien',name:'100% Banco (Banco Universal)',short:'100% Banco',type:'priv',rank:20,
-   assetsBs:19259159342,loansBs:4243735414,vencidosBs:200694737,depositsBs:14415934718,equityBs:1824259134,niBs:94516314,car:28.82,found:null,
-   doc:'Balance General de Publicación al 31/05/2026',aud:'Miguel A. Ubeche Pulido (Comisario)',url:'https://www.100x100banco.com',dateNote:''},
-  {id:'n58',name:'N58 Banco Digital Microfinanciero',short:'N58',type:'micro',rank:21,
-   assetsBs:7697464450,loansBs:2314658077,vencidosBs:1622002,depositsBs:6096816875,equityBs:640386434,niBs:128238480,car:12.64,found:null,
-   doc:'Balance General al 31/05/2026',aud:'Miriam R. Ríos R. (Auditor Interno)',url:'',dateNote:'Digital microfinance institution'},
-  {id:'delsur',name:'Del Sur Banco Universal',short:'Del Sur',type:'priv',rank:22,
+  {id:'delsur',name:'Del Sur Banco Universal',short:'Del Sur',type:'priv',rank:19,
    assetsBs:30606502101,loansBs:4265547415,vencidosBs:622,depositsBs:3410883129,equityBs:23827136825,niBs:613378988,car:105.82,found:2001,
    doc:'Balance General de Publicación al 31/03/2026',aud:'S.C. Márquez, Perdomo & Asociados',url:'',dateNote:'⚠ Mar 31, 2026 (not May)'},
 ];
@@ -476,9 +470,6 @@ const DESC={
   caroni:'Private bank based in Puerto Ordaz (Bolívar state), serving the heavy industry corridor. Very low loan-to-deposit ratio reflecting conservative lending.',
   bangente:'Microfinance institution (est. 2001) — Banco de la Gente Emprendedora. Focuses on micro-entrepreneurs and small businesses. Audited by Deloitte.',
   r4:'R4 Banco Microfinanciero — specialist microfinance bank with exceptional profitability metrics relative to its small equity base.',
-  bancrecer:'Bancrecer Banco Microfinanciero — microfinance institution focused on small-business credit. Audited by Crowe (Márquez Perdomo & Asociados). High NPL ratio (~7.7%) reflects the elevated credit risk typical of microfinance portfolios. Capital adequacy ratio of 38.21% is well above SUDEBAN\'s 9% minimum.',
-  cien:'100% Banco — private universal bank added from the May 2026 filing. CAR of 28.82%. NPL ratio of approximately 4.7% on a relatively small loan book. Comisario (statutory auditor): Miguel A. Ubeche Pulido. Previously excluded from this dashboard due to absence of a verified balance sheet.',
-  n58:'N58 Banco Digital, Banco Microfinanciero — small digital-native microfinance bank. CAR of 12.64%, the lowest in the covered universe but above SUDEBAN\'s 9% minimum. Very low NPL ratio (~0.07%) on a loan book of Bs 2.3B. Internal auditor: Miriam R. Ríos R.',
   delsur:'Private universal bank with an extraordinary CAR of 105.82% — by far the highest in the system. Highly capitalized relative to its small loan book. Note: balance sheet dated March 31, 2026.',
 };
 
@@ -558,7 +549,7 @@ function ra(){
   const nplBanks=b.filter(x=>x.npl!=null);
   const el=document.getElementById('nplBars');if(el){
     const sorted=[...nplBanks].sort((a,c)=>a.npl-c.npl);
-    el.innerHTML=sorted.map(x=>{const c=x.npl<0.5?'var(--accent)':x.npl<2?'var(--gold)':'var(--red)';return`<div class="br"><div class="brn">${x.short}</div><div class="brt"><div class="brf" style="width:${Math.min(x.npl/10*100,100).toFixed(0)}%;background:${c}"></div></div><div class="brv" style="color:${c}">${fpp(x.npl,2)}</div></div>`}).join('');}
+    el.innerHTML=sorted.map(x=>{const c=x.npl<0.5?'var(--accent)':x.npl<2?'var(--gold)':'var(--red)';return`<div class="br"><div class="brn">${x.short}</div><div class="brt"><div class="brf" style="width:${Math.min(x.npl/3*100,100).toFixed(0)}%;background:${c}"></div></div><div class="brv" style="color:${c}">${fpp(x.npl,2)}</div></div>`}).join('');}
   rBars('incomeBars',b,x=>val(x,'ni'),x=>fmtM(val(x,'ni')),bc);
   rBars('roeBars',b,x=>x.roe,x=>fpp(x.roe,1),x=>x.roe>=80?'var(--accent)':x.roe>=30?'var(--gold)':'var(--muted)');
   rBars('roaBars',b,x=>x.roa,x=>fpp(x.roa,1),x=>x.roa>=15?'var(--accent)':x.roa>=5?'var(--gold)':'var(--muted)');
@@ -579,6 +570,7 @@ function rScatter(banks){
   const cy=roa=>H-(roa/maxRoa*(H-PAD))-10;
   const r=a=>Math.max(4,Math.min(18,Math.sqrt(a/maxA)*40));
   let html='';
+  // grid
   [0,1,2,3].forEach(v=>{const y=cy(v*maxRoa/3);html+=`<line x1="${PAD}" y1="${y}" x2="${W}" y2="${y}" stroke="#e2e6ea" stroke-width="0.5" stroke-dasharray="3,3"/>`;html+=`<text x="${PAD-3}" y="${y+4}" font-size="8" fill="#9aa5b1" text-anchor="end">${(v*maxRoa/3).toFixed(0)}%</text>`;});
   [0,1,2,3].forEach(v=>{const x=cx(v*maxNpl/3);html+=`<line x1="${x}" y1="10" x2="${x}" y2="${H}" stroke="#e2e6ea" stroke-width="0.5" stroke-dasharray="3,3"/>`;html+=`<text x="${x}" y="${H+12}" font-size="8" fill="#9aa5b1" text-anchor="middle">${(v*maxNpl/3).toFixed(1)}%</text>`;});
   nplBanks.forEach(b=>{const x=cx(b.npl),y=cy(b.roa),rad=r(b.assetsUSD);const col=bc(b);html+=`<circle cx="${x}" cy="${y}" r="${rad}" fill="${col}" opacity="0.65"/>`;html+=`<text x="${x}" y="${y-rad-2}" font-size="7" fill="${col}" text-anchor="middle" font-weight="600">${b.short}</text>`;});
@@ -642,7 +634,7 @@ function rBP(id){
   <div class="bicard">${b.dateNote?`<div style="margin-bottom:8px"><span class="chip warn">${b.dateNote}</span></div>`:''}
     <div class="bname">${b.name}</div>${tb(b)}
     <div style="margin-top:14px">
-      <div class="sr"><div class="sn">Rank (by assets)</div><div class="sv">#${b.rank} of 23</div></div>
+      <div class="sr"><div class="sn">Rank (by assets)</div><div class="sv">#${b.rank} of 20</div></div>
       <div class="sr"><div class="sn">Total assets</div><div class="sv" style="color:var(--accent)">${fmtM(val(b,'assets'))}</div></div>
       <div class="sr"><div class="sn">Asset share</div><div class="sv">${fpp(b.assetShare)}</div></div>
       <div class="sr"><div class="sn">Loan portfolio (gross)</div><div class="sv">${fmtM(val(b,'loans'))}</div></div>
@@ -659,7 +651,7 @@ function rBP(id){
     <div class="card"><div class="ctitle">About</div><p style="font-size:12px;color:var(--muted);line-height:1.7">${DESC[id]||'No description available.'}</p></div>
     <div class="bcharts">
       <div class="card"><div class="ctitle">Peer comparison (assets)</div>
-        ${[b,...peers].map(x=>`<div class="br"><div class="brn" style="${x.id===b.id?'color:var(--accent);font-weight:600':'}">${x.short}${x.id===b.id?' ◀':''}</div><div class="brt"><div class="brf" style="width:${(val(x,'assets')/maxP*100).toFixed(1)}%;background:${x.id===b.id?'var(--accent)':bc(x)};opacity:${x.id===b.id?1:.4}"></div></div><div class="brv">${fmtM(val(x,'assets'))}</div></div>`).join('')}
+        ${[b,...peers].map(x=>`<div class="br"><div class="brn" style="${x.id===b.id?'color:var(--accent);font-weight:600':''}">${x.short}${x.id===b.id?' ◀':''}</div><div class="brt"><div class="brf" style="width:${(val(x,'assets')/maxP*100).toFixed(1)}%;background:${x.id===b.id?'var(--accent)':bc(x)};opacity:${x.id===b.id?1:.4}"></div></div><div class="brv">${fmtM(val(x,'assets'))}</div></div>`).join('')}
       </div>
       <div class="card"><div class="ctitle">Source document</div>
         <div style="font-size:11px;color:var(--text);font-weight:600;margin-bottom:6px">${b.doc||'—'}</div>
@@ -672,7 +664,7 @@ function rBP(id){
   </div>
 </div>
 <div class="g4 mb20">
-  <div class="card"><div class="ctitle">Assets</div><div style="text-align:center;padding:14px 0"><div style="font-family:var(--mono);font-size:22px;font-weight:700;color:var(--accent)">${fmtM(val(b,'assets'))}</div><div style="font-size:10px;color:var(--muted);margin-top:4px">${fpp(b.assetShare)} of 23-bank total</div></div></div>
+  <div class="card"><div class="ctitle">Assets</div><div style="text-align:center;padding:14px 0"><div style="font-family:var(--mono);font-size:22px;font-weight:700;color:var(--accent)">${fmtM(val(b,'assets'))}</div><div style="font-size:10px;color:var(--muted);margin-top:4px">${fpp(b.assetShare)} of 20-bank total</div></div></div>
   <div class="card"><div class="ctitle">Net Income YTD</div><div style="text-align:center;padding:14px 0"><div style="font-family:var(--mono);font-size:22px;font-weight:700;color:var(--accent)">${fmtM(val(b,'ni'))}</div><div style="font-size:10px;color:var(--muted);margin-top:4px">Jan–May 2026</div></div></div>
   <div class="card"><div class="ctitle">Capital (CAR)</div><div style="text-align:center;padding:14px 0"><div style="font-family:var(--mono);font-size:22px;font-weight:700;color:${b.car>=30?'var(--accent)':b.car>=15?'var(--gold)':'var(--red)'}">${fpp(b.car,2)}</div><div style="font-size:10px;color:var(--muted);margin-top:4px">Min required: 9%</div></div></div>
   <div class="card"><div class="ctitle">ROE / ROA (ann.)</div><div style="text-align:center;padding:14px 0"><div style="font-family:var(--mono);font-size:22px;font-weight:700;${rc}">${fpp(b.roe,1)}</div><div style="font-size:10px;color:var(--muted);margin-top:4px">ROA: ${fpp(b.roa,1)}</div></div></div>
